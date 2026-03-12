@@ -69,25 +69,29 @@
   <main>
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
-    <section class="page-header py-16 lg:py-20 relative overflow-hidden">
+    <section class="page-header py-20 lg:py-28 relative overflow-hidden">
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
-        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Contact</h2>
-        <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">Contact Us</h1>
-        <p class="mt-4 max-w-2xl text-steel-200 text-base">SMR 설계·해석·시험·인허가에 관한 문의를 환영합니다.</p>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="h-px w-12 bg-teal-500"></span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Contact</span>
+        </div>
+        <h1 class="text-4xl font-black text-white md:text-5xl lg:text-6xl tracking-tight">Contact Us</h1>
+        <p class="mt-5 max-w-2xl text-lg text-steel-200">SMR 설계·해석·시험·인허가에 관한 문의를 환영합니다.</p>
       </div>
     </section>
 
     <!-- ═══════════════════ OFFICES ═══════════════════ -->
-    <section class="bg-paper py-20 fade-in">
+    <section class="bg-paper py-24 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
-        <div class="mb-14">
-          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Offices</h2>
-          <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight">오피스</h3>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="h-px w-12 bg-teal-500"></span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Offices</span>
         </div>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <h3 class="text-3xl font-black text-ink-900 md:text-4xl tracking-tight mb-12">오피스</h3>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <!-- HQ Daejeon -->
           <div class="overflow-hidden rounded-lg border border-slate-200 bg-white">
-            <div class="grid grid-cols-2 gap-1">
+            <div class="grid grid-cols-2 gap-px bg-slate-200">
               <div class="h-48 overflow-hidden">
                 <img src="rx_images/office_1.jpg" alt="RX 본사 사무실" class="h-full w-full object-cover">
               </div>
@@ -96,15 +100,8 @@
               </div>
             </div>
             <div class="p-7">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
-                  <span class="material-symbols-outlined text-xl">location_city</span>
-                </div>
-                <div>
-                  <h4 class="text-lg font-bold text-ink-900">본사 HQ</h4>
-                  <p class="text-xs text-steel-400">Headquarters · Daejeon</p>
-                </div>
-              </div>
+              <h4 class="text-lg font-bold text-ink-900 mb-1">본사 HQ</h4>
+              <p class="text-xs text-steel-400 mb-4">Headquarters · Daejeon</p>
               <div class="flex flex-col gap-3">
                 <div class="flex items-start gap-3">
                   <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
@@ -116,7 +113,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                   <span class="material-symbols-outlined text-steel-400 text-lg">mail</span>
-                  <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-500 hover:underline">khlee@rx.energy</a>
+                  <a href="mailto:khlee@rx.energy" class="text-sm text-teal-500 hover:underline">khlee@rx.energy</a>
                 </div>
               </div>
             </div>
@@ -124,7 +121,7 @@
 
           <!-- Seoul Branch -->
           <div class="overflow-hidden rounded-lg border border-slate-200 bg-white">
-            <div class="grid grid-cols-2 gap-1">
+            <div class="grid grid-cols-2 gap-px bg-slate-200">
               <div class="h-48 overflow-hidden">
                 <img src="rx_images/office_2.jpg" alt="RX 서울지사" class="h-full w-full object-cover">
               </div>
@@ -133,15 +130,8 @@
               </div>
             </div>
             <div class="p-7">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500">
-                  <span class="material-symbols-outlined text-xl">apartment</span>
-                </div>
-                <div>
-                  <h4 class="text-lg font-bold text-ink-900">서울지사 Seoul</h4>
-                  <p class="text-xs text-steel-400">Seoul Branch · Gangnam</p>
-                </div>
-              </div>
+              <h4 class="text-lg font-bold text-ink-900 mb-1">서울지사 Seoul</h4>
+              <p class="text-xs text-steel-400 mb-4">Seoul Branch · Gangnam</p>
               <div class="flex flex-col gap-3">
                 <div class="flex items-start gap-3">
                   <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
@@ -155,48 +145,39 @@
     </section>
 
     <!-- ═══════════════════ CONTACT INFO ═══════════════════ -->
-    <section class="bg-white py-20 fade-in">
+    <section class="bg-white py-24 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-px bg-slate-200 md:grid-cols-3">
           <!-- Email -->
-          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
-              <span class="material-symbols-outlined text-2xl">mail</span>
-            </div>
-            <h4 class="text-base font-bold text-ink-900 mb-2">Email</h4>
-            <a href="mailto:khlee@rx.energy" class="text-sm font-semibold text-teal-500 hover:underline">khlee@rx.energy</a>
+          <div class="bg-white p-8 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400 mb-3">Email</p>
+            <a href="mailto:khlee@rx.energy" class="text-lg font-bold text-teal-500 hover:underline">khlee@rx.energy</a>
           </div>
           <!-- Phone -->
-          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
-              <span class="material-symbols-outlined text-2xl">call</span>
-            </div>
-            <h4 class="text-base font-bold text-ink-900 mb-2">Phone</h4>
-            <p class="text-sm font-semibold text-ink-900">+82 042-823-6616</p>
-            <p class="text-xs text-steel-400 mt-1">평일 09:00 – 18:00 (KST)</p>
+          <div class="bg-white p-8 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400 mb-3">Phone</p>
+            <p class="text-lg font-bold text-ink-900">+82 042-823-6616</p>
+            <p class="text-xs text-steel-400 mt-2">평일 09:00 – 18:00 (KST)</p>
           </div>
           <!-- Web -->
-          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
-              <span class="material-symbols-outlined text-2xl">language</span>
-            </div>
-            <h4 class="text-base font-bold text-ink-900 mb-2">Web</h4>
-            <a href="https://rx.energy" target="_blank" class="text-sm font-semibold text-teal-500 hover:underline">rx.energy</a>
+          <div class="bg-white p-8 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400 mb-3">Web</p>
+            <a href="https://rx.energy" target="_blank" class="text-lg font-bold text-teal-500 hover:underline">rx.energy</a>
           </div>
         </div>
 
         <!-- Expertise Tags -->
-        <div class="mt-10 rounded-lg border border-slate-200 bg-paper p-7 text-center">
-          <h4 class="text-base font-bold text-ink-900 mb-4">RX가 도울 수 있는 영역</h4>
+        <div class="mt-12 border-t border-slate-200 pt-10 text-center">
+          <h4 class="text-base font-bold text-ink-900 mb-5">RX가 도울 수 있는 영역</h4>
           <div class="flex flex-wrap justify-center gap-2">
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">1차 계통 설계</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">안전 해석</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">인허가 문서</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">AI 자동화</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">구조/내진 해석</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">SG 설계</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">재료 물성 검사</span>
-            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">RCP 인허가</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">1차 계통 설계</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">안전 해석</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">인허가 문서</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">AI 자동화</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">구조/내진 해석</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">SG 설계</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">재료 물성 검사</span>
+            <span class="rounded-full border border-slate-200 bg-paper px-3 py-1.5 text-xs font-semibold text-steel-400">RCP 인허가</span>
           </div>
         </div>
       </div>
@@ -205,7 +186,7 @@
   </main>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer class="border-t border-white/10 bg-ink-950 py-10">
+  <footer class="border-t border-white/10 bg-ink-950 py-12">
     <div class="mx-auto max-w-site px-6 lg:px-10">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div class="md:col-span-1">
@@ -236,7 +217,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-8 pt-6 border-t border-white/5 text-center">
+      <div class="mt-10 pt-6 border-t border-white/5 text-center">
         <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
       </div>
     </div>

@@ -5,19 +5,6 @@
 /* ── Base ─────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
-/* ── Accent Top Borders ───────────────────────────────── */
-.accent-top::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 3px 3px 0 0;
-}
-.accent-teal::before  { background: linear-gradient(90deg, #156082, #0f9ed5); }
-.accent-amber::before { background: linear-gradient(90deg, #e97132, #f3b978); }
-.accent-green::before { background: linear-gradient(90deg, #196b24, #2da544); }
-.accent-cyan::before  { background: linear-gradient(90deg, #0f9ed5, #3db8e8); }
-
 /* ── Scroll Animation ─────────────────────────────────── */
 .fade-in {
   opacity: 0;
@@ -51,70 +38,4 @@ html { scroll-behavior: smooth; }
 /* ── Active Nav Link ──────────────────────────────────── */
 .nav-active {
   color: #3db8e8;
-}
-
-/* ── Org Chart Connector Lines ────────────────────────── */
-.org-line-v {
-  position: absolute;
-  left: 50%;
-  width: 2px;
-  background: rgba(171, 203, 224, 0.18);
-  transform: translateX(-50%);
-}
-.org-line-h {
-  position: absolute;
-  height: 2px;
-  background: rgba(171, 203, 224, 0.18);
-}
-
-/* ── Workflow Arrow ───────────────────────────────────── */
-.workflow-arrow::after {
-  content: '';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 8px solid transparent;
-  border-left-color: rgba(171, 203, 224, 0.25);
-}
-.workflow-arrow:last-child::after { display: none; }
-
-/* ── Timeline ─────────────────────────────────────────── */
-.timeline-dot {
-  position: absolute;
-  left: -9px;
-  top: 6px;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-/* ── Contact Form ─────────────────────────────────────── */
-.form-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid #d8e2ea;
-  background: white;
-  font-size: 0.875rem;
-  color: #0b1623;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.form-input:focus {
-  outline: none;
-  border-color: #0f9ed5;
-  box-shadow: 0 0 0 3px rgba(15, 158, 213, 0.12);
-}
-.form-input::placeholder {
-  color: #8ea8bc;
-}
-
-/* ── VS Comparison ────────────────────────────────────── */
-.vs-badge {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
 }
