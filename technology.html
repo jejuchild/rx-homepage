@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology | RX Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: '#0b1623', 900: '#0e2841', 800: '#13334f', 700: '#1a4568' },
+            steel: { 100: '#d8e2ea', 200: '#b7c7d4', 300: '#8ea8bc', 400: '#6b8da6' },
+            teal: { 500: '#156082', 600: '#114e6a' },
+            cyan: { 400: '#3db8e8', 500: '#0f9ed5' },
+            amber: { 400: '#f3945a', 500: '#e97132' },
+            paper: '#f3f7fb',
+          },
+          fontFamily: { sans: ['"SUIT Variable"', '"Noto Sans KR"', 'sans-serif'] },
+          maxWidth: { site: '1200px' },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-ink-950 font-sans text-ink-900 antialiased">
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
+        <a href="capabilities.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Capabilities</a>
+        <a href="technology.html" class="text-sm font-semibold nav-active transition-colors">Technology</a>
+        <a href="contact.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950/98 backdrop-blur-xl flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+      <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+      <button id="close-nav" class="text-steel-200 hover:text-white">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 p-6">
+      <a href="index.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Home</a>
+      <a href="about.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">About</a>
+      <a href="capabilities.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Capabilities</a>
+      <a href="technology.html" class="py-3 text-lg font-semibold text-cyan-400 border-b border-white/5">Technology</a>
+      <a href="contact.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
+    <section class="page-header py-16 lg:py-20 relative overflow-hidden">
+      <div class="pointer-events-none absolute -top-36 -left-32 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 opacity-[0.08] blur-[80px]"></div>
+      <div class="pointer-events-none absolute top-20 -right-40 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-amber-500 to-amber-400 opacity-[0.06] blur-[80px]"></div>
+      <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Technology</h2>
+        <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">Agentic AI<br>for Nuclear</h1>
+        <p class="mt-4 max-w-2xl text-steel-200 text-base">팔기 위한 AI가 아닙니다. 원자력 설계·인허가 실무를 정확하게 가속하는 자동화 기술입니다.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ AI POSITIONING ═══════════════════ -->
+    <section class="bg-paper py-20 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-teal-500 mb-6">
+              <span class="material-symbols-outlined text-base">smart_toy</span>
+              AI-Powered Engineering
+            </div>
+            <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight mb-6">
+              Fabless Company in<br>Nuclear Industry,<br><span class="gradient-text">Powered by AI</span>
+            </h3>
+            <p class="text-base text-steel-400 leading-relaxed mb-4">
+              RX는 KAERI, KAIST와 공동으로 원자력 산업에 특화된 Agentic AI를 개발하고 있습니다. 수천 건의 인허가 문서를 수작업으로 검토하던 과정을 수분 내로 단축합니다.
+            </p>
+            <p class="text-base text-steel-400 leading-relaxed">
+              단순 키워드 검색이 아닌, 규제 요구사항과 근거 문서 간의 의미적 연결을 자동으로 파악하고 추적 가능한 형태로 문서화합니다.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+              <p class="text-3xl font-black text-cyan-500 leading-none">3,000<span class="text-lg">+</span></p>
+              <p class="mt-2 text-sm font-semibold text-steel-400">인허가 문서 대응 범위</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+              <p class="text-3xl font-black text-amber-500 leading-none">300K<span class="text-lg">+</span></p>
+              <p class="mt-2 text-sm font-semibold text-steel-400">내부 기술 문서 자산</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+              <p class="text-3xl font-black text-ink-900 leading-none">수분</p>
+              <p class="mt-2 text-sm font-semibold text-steel-400">AI 기반 문서 검색 시간</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+              <p class="text-3xl font-black text-teal-500 leading-none">100%</p>
+              <p class="mt-2 text-sm font-semibold text-steel-400">출처 추적성 보장</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ WORKFLOW DIAGRAM ═══════════════════ -->
+    <section class="relative overflow-hidden py-20 fade-in">
+      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+      <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14 text-center">
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Agent Workflow</h2>
+          <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">에이전트 작동 흐름</h3>
+          <p class="mx-auto mt-4 max-w-2xl text-steel-200 text-[0.95rem]">입력에서 출력까지, 자동화된 인허가 문서 처리 파이프라인</p>
+        </div>
+
+        <!-- Horizontal workflow on desktop, vertical on mobile -->
+        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-0 max-w-4xl mx-auto">
+          <!-- Step 1: Input -->
+          <div class="flex-1 glass-dark rounded-2xl p-6 text-center w-full">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+              <span class="material-symbols-outlined text-2xl">input</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Input</h4>
+            <p class="text-xs text-steel-300 leading-relaxed">인허가 질의<br>설계 변경 사항<br>규제 요구사항</p>
+          </div>
+
+          <!-- Arrow -->
+          <div class="flex items-center justify-center md:px-2 py-2 md:py-0">
+            <span class="material-symbols-outlined text-steel-400 text-2xl md:rotate-0 rotate-90">arrow_forward</span>
+          </div>
+
+          <!-- Step 2: Agent Action -->
+          <div class="flex-[2] rounded-2xl p-6 text-center w-full border-2 border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-teal-500/5">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+              <span class="material-symbols-outlined text-2xl">smart_toy</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-3">Agent Action</h4>
+            <div class="flex flex-wrap justify-center gap-2">
+              <span class="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-[0.7rem] font-semibold text-steel-100">자동 검색</span>
+              <span class="material-symbols-outlined text-steel-400 text-sm self-center">arrow_forward</span>
+              <span class="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-[0.7rem] font-semibold text-steel-100">출처 인용</span>
+              <span class="material-symbols-outlined text-steel-400 text-sm self-center">arrow_forward</span>
+              <span class="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-[0.7rem] font-semibold text-steel-100">문서 초안</span>
+              <span class="material-symbols-outlined text-steel-400 text-sm self-center">arrow_forward</span>
+              <span class="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-[0.7rem] font-semibold text-steel-100">검토/추적성</span>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="flex items-center justify-center md:px-2 py-2 md:py-0">
+            <span class="material-symbols-outlined text-steel-400 text-2xl md:rotate-0 rotate-90">arrow_forward</span>
+          </div>
+
+          <!-- Step 3: Output -->
+          <div class="flex-1 glass-dark rounded-2xl p-6 text-center w-full border-t-2 border-amber-500/50">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+              <span class="material-symbols-outlined text-2xl">output</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Output</h4>
+            <p class="text-xs text-steel-300 leading-relaxed">근거 기반<br>인허가 대응 문서<br>추적 가능한 보고서</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ AS-IS vs TO-BE ═══════════════════ -->
+    <section class="bg-paper py-20 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14 text-center">
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Transformation</h2>
+          <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight">AS-IS → TO-BE</h3>
+          <p class="mx-auto mt-4 max-w-2xl text-steel-400 text-[0.95rem]">Agentic AI가 바꾸는 인허가 업무의 패러다임</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 relative">
+          <!-- AS-IS -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-8">
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-4 py-1.5">
+              <span class="material-symbols-outlined text-red-400 text-base">warning</span>
+              <span class="text-xs font-bold text-red-500 uppercase tracking-wider">AS-IS</span>
+            </div>
+            <h4 class="text-lg font-bold text-ink-900 mb-5">기존 방식</h4>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 shrink-0">close</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">수천 건의 인허가 문서 수동 검토</p>
+                  <p class="text-xs text-steel-400 mt-0.5">전문 인력이 문서를 일일이 읽고 교차 확인</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 shrink-0">close</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">전문가 의존적 교차 검증</p>
+                  <p class="text-xs text-steel-400 mt-0.5">소수 전문가에 의존한 병목 구조</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 shrink-0">close</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">수주 ~ 수개월 소요</p>
+                  <p class="text-xs text-steel-400 mt-0.5">인허가 준비 일정이 프로젝트 전체 일정을 지배</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 shrink-0">close</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">변경 시 영향도 파악 어려움</p>
+                  <p class="text-xs text-steel-400 mt-0.5">설계 변경의 파급 효과를 수동 추적</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VS Badge (desktop) -->
+          <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div class="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+              <span class="material-symbols-outlined text-white text-xl">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- TO-BE -->
+          <div class="rounded-2xl border-2 border-cyan-500/30 bg-white p-8">
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-cyan-50 border border-cyan-200 px-4 py-1.5">
+              <span class="material-symbols-outlined text-cyan-500 text-base">auto_awesome</span>
+              <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider">TO-BE</span>
+            </div>
+            <h4 class="text-lg font-bold text-ink-900 mb-5">Agentic AI 적용 후</h4>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">전체 문서 자동 검색 (수분 이내)</p>
+                  <p class="text-xs text-steel-400 mt-0.5">300K+ 문서에서 관련 근거를 즉시 추출</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">AI 기반 근거 추적 및 인용</p>
+                  <p class="text-xs text-steel-400 mt-0.5">모든 결론에 출처와 근거를 자동 연결</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">문서 초안 자동 생성</p>
+                  <p class="text-xs text-steel-400 mt-0.5">인허가 대응 문서의 초안을 구조화된 형태로 생성</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink-900">검토 및 추적성 보장</p>
+                  <p class="text-xs text-steel-400 mt-0.5">변경 이력과 영향도를 자동으로 추적·관리</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ APPLICATIONS ═══════════════════ -->
+    <section class="relative overflow-hidden py-20 fade-in">
+      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+      <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14 text-center">
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Applications</h2>
+          <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">적용 분야</h3>
+          <p class="mx-auto mt-4 max-w-2xl text-steel-200 text-[0.95rem]">원자력 밸류체인 전반에 걸친 AI 자동화</p>
+        </div>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <!-- Operators -->
+          <div class="glass-dark rounded-2xl p-7 card-lift">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+              <span class="material-symbols-outlined text-2xl">business</span>
+            </div>
+            <h4 class="mb-2 text-base font-bold text-white">운영사</h4>
+            <p class="text-xs text-cyan-400/80 font-semibold uppercase tracking-wider mb-3">Operators</p>
+            <p class="text-sm leading-relaxed text-steel-200 mb-4">규정 준수 문서 자동화를 통해 운영 인허가 관련 문서 작업의 효율을 극대화합니다.</p>
+            <ul class="flex flex-col gap-2">
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                규제 보고서 자동 생성
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                정기 검사 문서 관리
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                변경 관리 이력 추적
+              </li>
+            </ul>
+          </div>
+          <!-- Manufacturing -->
+          <div class="glass-dark rounded-2xl p-7 card-lift">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+              <span class="material-symbols-outlined text-2xl">factory</span>
+            </div>
+            <h4 class="mb-2 text-base font-bold text-white">제조사</h4>
+            <p class="text-xs text-amber-400/80 font-semibold uppercase tracking-wider mb-3">Manufacturing</p>
+            <p class="text-sm leading-relaxed text-steel-200 mb-4">설계 검증 자동화로 제조 단계의 품질 보증과 문서 관리를 체계화합니다.</p>
+            <ul class="flex flex-col gap-2">
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                설계-제조 연계 검증
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                품질 기록 자동화
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                공급망 문서 추적
+              </li>
+            </ul>
+          </div>
+          <!-- Licensing -->
+          <div class="glass-dark rounded-2xl p-7 card-lift">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-500">
+              <span class="material-symbols-outlined text-2xl">gavel</span>
+            </div>
+            <h4 class="mb-2 text-base font-bold text-white">인허가</h4>
+            <p class="text-xs text-teal-500/80 font-semibold uppercase tracking-wider mb-3">Licensing</p>
+            <p class="text-sm leading-relaxed text-steel-200 mb-4">요구사항-근거 매핑 자동화로 인허가 준비 과정을 획기적으로 가속합니다.</p>
+            <ul class="flex flex-col gap-2">
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
+                요구사항-근거 자동 매핑
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
+                변경 영향도 자동 분석
+              </li>
+              <li class="flex items-center gap-2 text-xs text-steel-300">
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
+                인허가 문서 패키징
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CO-DEVELOPMENT ═══════════════════ -->
+    <section class="bg-paper py-20 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14 text-center">
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Co-Development</h2>
+          <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight">공동 개발 파트너</h3>
+        </div>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+              <span class="material-symbols-outlined text-2xl">science</span>
+            </div>
+            <h4 class="text-lg font-bold text-ink-900">KAERI</h4>
+            <p class="text-xs text-steel-400 mt-1">한국원자력연구원</p>
+            <p class="mt-3 text-sm text-steel-400 leading-relaxed">원자력 핵심 기술 기반 확보 및 인허가 자동화 공동 연구</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+              <span class="material-symbols-outlined text-2xl">school</span>
+            </div>
+            <h4 class="text-lg font-bold text-ink-900">KAIST</h4>
+            <p class="text-xs text-steel-400 mt-1">한국과학기술원</p>
+            <p class="mt-3 text-sm text-steel-400 leading-relaxed">AI/ML 핵심 알고리즘 및 자연어 처리 기술 공동 개발</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+              <span class="material-symbols-outlined text-2xl">hub</span>
+            </div>
+            <h4 class="text-lg font-bold text-ink-900">산업 파트너</h4>
+            <p class="text-xs text-steel-400 mt-1">Industry Partners</p>
+            <p class="mt-3 text-sm text-steel-400 leading-relaxed">원전 운영사, 제조사와의 실무 검증 및 현장 적용</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="border-t border-white/10 bg-ink-950 py-10">
+    <div class="mx-auto max-w-site px-6 lg:px-10">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div class="md:col-span-1">
+          <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-7 w-auto mb-4 opacity-80">
+          <p class="text-xs text-steel-400 leading-relaxed">차세대 SMR 엔지니어링의 실행 파트너</p>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Services</h5>
+          <div class="flex flex-col gap-2">
+            <a href="capabilities.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Core Capabilities</a>
+            <a href="technology.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">AI Technology</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Company</h5>
+          <div class="flex flex-col gap-2">
+            <a href="about.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">About RX</a>
+            <a href="about.html#milestones" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Milestones</a>
+            <a href="about.html#partners" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Partners</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Contact</h5>
+          <div class="flex flex-col gap-2 text-sm text-steel-400">
+            <p>khlee@rx.energy</p>
+            <p>+82 042-823-6616</p>
+            <a href="https://rx.energy" class="hover:text-cyan-400 transition-colors">rx.energy</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-white/5 text-center">
+        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

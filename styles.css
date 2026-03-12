@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════
+   RX Inc. — Shared Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Base ─────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Glass Effects ────────────────────────────────────── */
+.glass-dark {
+  background: linear-gradient(160deg, rgba(11, 24, 37, 0.88), rgba(14, 41, 64, 0.88));
+  border: 1px solid rgba(171, 203, 224, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.glass-hero {
+  background: linear-gradient(160deg, rgba(11, 24, 37, 0.84), rgba(14, 41, 64, 0.84));
+  border: 1px solid rgba(171, 203, 224, 0.14);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+/* ── Accent Top Borders ───────────────────────────────── */
+.accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+.accent-teal::before  { background: linear-gradient(90deg, #156082, #0f9ed5); }
+.accent-amber::before { background: linear-gradient(90deg, #e97132, #f3b978); }
+.accent-green::before { background: linear-gradient(90deg, #196b24, #2da544); }
+.accent-cyan::before  { background: linear-gradient(90deg, #0f9ed5, #3db8e8); }
+
+/* ── Scroll Animation ─────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0b1623; }
+::-webkit-scrollbar-thumb { background: #156082; border-radius: 3px; }
+
+/* ── Mobile Navigation Overlay ────────────────────────── */
+.mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ── Page Header (subpages) ───────────────────────────── */
+.page-header {
+  background: linear-gradient(to bottom, #0b1623, #0e2841);
+}
+
+/* ── Active Nav Link ──────────────────────────────────── */
+.nav-active {
+  color: #3db8e8 !important;
+}
+
+/* ── Org Chart Connector Lines ────────────────────────── */
+.org-line-v {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: rgba(171, 203, 224, 0.18);
+  transform: translateX(-50%);
+}
+.org-line-h {
+  position: absolute;
+  height: 2px;
+  background: rgba(171, 203, 224, 0.18);
+}
+
+/* ── Workflow Arrow ───────────────────────────────────── */
+.workflow-arrow::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left-color: rgba(171, 203, 224, 0.25);
+}
+.workflow-arrow:last-child::after { display: none; }
+
+/* ── Timeline ─────────────────────────────────────────── */
+.timeline-dot {
+  position: absolute;
+  left: -9px;
+  top: 6px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  ring: 4px;
+}
+
+/* ── Card Hover ───────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Contact Form ─────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d8e2ea;
+  background: white;
+  font-size: 0.875rem;
+  color: #0b1623;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #0f9ed5;
+  box-shadow: 0 0 0 3px rgba(15, 158, 213, 0.12);
+}
+.form-input::placeholder {
+  color: #8ea8bc;
+}
+
+/* ── Gradient Text Utility ────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #3db8e8, #156082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── VS Comparison ────────────────────────────────────── */
+.vs-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}

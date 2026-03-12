@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | RX Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: '#0b1623', 900: '#0e2841', 800: '#13334f', 700: '#1a4568' },
+            steel: { 100: '#d8e2ea', 200: '#b7c7d4', 300: '#8ea8bc', 400: '#6b8da6' },
+            teal: { 500: '#156082', 600: '#114e6a' },
+            cyan: { 400: '#3db8e8', 500: '#0f9ed5' },
+            amber: { 400: '#f3945a', 500: '#e97132' },
+            paper: '#f3f7fb',
+          },
+          fontFamily: { sans: ['"SUIT Variable"', '"Noto Sans KR"', 'sans-serif'] },
+          maxWidth: { site: '1200px' },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-ink-950 font-sans text-ink-900 antialiased">
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
+        <a href="capabilities.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Capabilities</a>
+        <a href="technology.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Technology</a>
+        <a href="contact.html" class="text-sm font-semibold nav-active transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950/98 backdrop-blur-xl flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+      <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+      <button id="close-nav" class="text-steel-200 hover:text-white">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 p-6">
+      <a href="index.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Home</a>
+      <a href="about.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">About</a>
+      <a href="capabilities.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Capabilities</a>
+      <a href="technology.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Technology</a>
+      <a href="contact.html" class="py-3 text-lg font-semibold text-cyan-400">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
+    <section class="page-header py-16 lg:py-20 relative overflow-hidden">
+      <div class="pointer-events-none absolute -top-36 -left-32 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 opacity-[0.08] blur-[80px]"></div>
+      <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Contact</h2>
+        <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">Contact Us</h1>
+        <p class="mt-4 max-w-2xl text-steel-200 text-base">SMR 설계·해석·시험·인허가에 관한 문의를 환영합니다.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ OFFICES ═══════════════════ -->
+    <section class="bg-paper py-20 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14">
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Offices</h2>
+          <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight">오피스</h3>
+        </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <!-- HQ Daejeon -->
+          <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden card-lift">
+            <div class="grid grid-cols-2 gap-1">
+              <div class="h-48 overflow-hidden">
+                <img src="rx_images/office_1.jpg" alt="RX 본사 사무실" class="h-full w-full object-cover">
+              </div>
+              <div class="h-48 overflow-hidden">
+                <img src="rx_images/office_3.jpg" alt="RX 본사 내부" class="h-full w-full object-cover">
+              </div>
+            </div>
+            <div class="p-7">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
+                  <span class="material-symbols-outlined text-xl">location_city</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-ink-900">본사 HQ</h4>
+                  <p class="text-xs text-steel-400">Headquarters · Daejeon</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
+                  <p class="text-sm text-steel-400 leading-relaxed">대전광역시 유성구 유성대로877번길 70<br><span class="text-xs text-steel-300">70 Yuseong-daero 877beon-gil, Yuseong-gu, Daejeon</span></p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-steel-400 text-lg">call</span>
+                  <p class="text-sm text-steel-400">042-823-6616</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-steel-400 text-lg">mail</span>
+                  <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-500 hover:underline">khlee@rx.energy</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seoul Branch -->
+          <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden card-lift">
+            <div class="grid grid-cols-2 gap-1">
+              <div class="h-48 overflow-hidden">
+                <img src="rx_images/office_2.jpg" alt="RX 서울지사" class="h-full w-full object-cover">
+              </div>
+              <div class="h-48 overflow-hidden">
+                <img src="rx_images/office_4.jpg" alt="RX 서울지사 내부" class="h-full w-full object-cover">
+              </div>
+            </div>
+            <div class="p-7">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500">
+                  <span class="material-symbols-outlined text-xl">apartment</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-ink-900">서울지사 Seoul</h4>
+                  <p class="text-xs text-steel-400">Seoul Branch · Gangnam</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
+                  <p class="text-sm text-steel-400 leading-relaxed">서울특별시 강남구 역삼로 MARU 180<br><span class="text-xs text-steel-300">MARU 180, Yeoksam-ro, Gangnam-gu, Seoul</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CONTACT INFO ═══════════════════ -->
+    <section class="bg-white py-20 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <!-- Email -->
+          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+              <span class="material-symbols-outlined text-2xl">mail</span>
+            </div>
+            <h4 class="text-base font-bold text-ink-900 mb-2">Email</h4>
+            <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-500 hover:underline font-semibold">khlee@rx.energy</a>
+          </div>
+          <!-- Phone -->
+          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+              <span class="material-symbols-outlined text-2xl">call</span>
+            </div>
+            <h4 class="text-base font-bold text-ink-900 mb-2">Phone</h4>
+            <p class="text-sm font-semibold text-ink-900">+82 042-823-6616</p>
+            <p class="text-xs text-steel-400 mt-1">평일 09:00 – 18:00 (KST)</p>
+          </div>
+          <!-- Web -->
+          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+              <span class="material-symbols-outlined text-2xl">language</span>
+            </div>
+            <h4 class="text-base font-bold text-ink-900 mb-2">Web</h4>
+            <a href="https://rx.energy" target="_blank" class="text-sm text-cyan-500 hover:underline font-semibold">rx.energy</a>
+          </div>
+        </div>
+
+        <!-- Expertise Tags -->
+        <div class="mt-10 rounded-2xl border border-slate-200 bg-paper p-7 text-center">
+          <h4 class="text-base font-bold text-ink-900 mb-4">RX가 도울 수 있는 영역</h4>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">1차 계통 설계</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">안전 해석</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">인허가 문서</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">AI 자동화</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">구조/내진 해석</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">SG 설계</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">재료 물성 검사</span>
+            <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">RCP 인허가</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="border-t border-white/10 bg-ink-950 py-10">
+    <div class="mx-auto max-w-site px-6 lg:px-10">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div class="md:col-span-1">
+          <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-7 w-auto mb-4 opacity-80">
+          <p class="text-xs text-steel-400 leading-relaxed">차세대 SMR 엔지니어링의 실행 파트너</p>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Services</h5>
+          <div class="flex flex-col gap-2">
+            <a href="capabilities.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Core Capabilities</a>
+            <a href="technology.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">AI Technology</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Company</h5>
+          <div class="flex flex-col gap-2">
+            <a href="about.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">About RX</a>
+            <a href="about.html#milestones" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Milestones</a>
+            <a href="about.html#partners" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Partners</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Contact</h5>
+          <div class="flex flex-col gap-2 text-sm text-steel-400">
+            <p>khlee@rx.energy</p>
+            <p>+82 042-823-6616</p>
+            <a href="https://rx.energy" class="hover:text-cyan-400 transition-colors">rx.energy</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-white/5 text-center">
+        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
