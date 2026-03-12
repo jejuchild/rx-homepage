@@ -51,16 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── Sticky header shadow on scroll ─────────────────── */
-  const header = document.querySelector('header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        header.classList.add('shadow-lg', 'shadow-black/20');
-      } else {
-        header.classList.remove('shadow-lg', 'shadow-black/20');
-      }
-    }, { passive: true });
-  }
-
 });

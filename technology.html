@@ -30,7 +30,7 @@
 <body class="bg-ink-950 font-sans text-ink-900 antialiased">
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
     <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
@@ -42,7 +42,7 @@
         <a href="contact.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
       </nav>
       <div class="flex items-center gap-4">
-        <button id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -50,10 +50,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950/98 backdrop-blur-xl flex flex-col">
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
       <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
-      <button id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -70,10 +70,8 @@
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="page-header py-16 lg:py-20 relative overflow-hidden">
-      <div class="pointer-events-none absolute -top-36 -left-32 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 opacity-[0.08] blur-[80px]"></div>
-      <div class="pointer-events-none absolute top-20 -right-40 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-amber-500 to-amber-400 opacity-[0.06] blur-[80px]"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
-        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Technology</h2>
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Technology</h2>
         <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">Agentic AI<br>for Nuclear</h1>
         <p class="mt-4 max-w-2xl text-steel-200 text-base">팔기 위한 AI가 아닙니다. 원자력 설계·인허가 실무를 정확하게 가속하는 자동화 기술입니다.</p>
       </div>
@@ -89,7 +87,7 @@
               AI-Powered Engineering
             </div>
             <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight mb-6">
-              Fabless Company in<br>Nuclear Industry,<br><span class="gradient-text">Powered by AI</span>
+              Fabless Company in<br>Nuclear Industry,<br><span class="text-teal-500">Powered by AI</span>
             </h3>
             <p class="text-base text-steel-400 leading-relaxed mb-4">
               RX는 KAERI, KAIST와 공동으로 원자력 산업에 특화된 Agentic AI를 개발하고 있습니다. 수천 건의 인허가 문서를 수작업으로 검토하던 과정을 수분 내로 단축합니다.
@@ -99,19 +97,19 @@
             </p>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 text-center">
               <p class="text-3xl font-black text-cyan-500 leading-none">3,000<span class="text-lg">+</span></p>
               <p class="mt-2 text-sm font-semibold text-steel-400">인허가 문서 대응 범위</p>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 text-center">
               <p class="text-3xl font-black text-amber-500 leading-none">300K<span class="text-lg">+</span></p>
               <p class="mt-2 text-sm font-semibold text-steel-400">내부 기술 문서 자산</p>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 text-center">
               <p class="text-3xl font-black text-ink-900 leading-none">수분</p>
               <p class="mt-2 text-sm font-semibold text-steel-400">AI 기반 문서 검색 시간</p>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 card-lift text-center">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 text-center">
               <p class="text-3xl font-black text-teal-500 leading-none">100%</p>
               <p class="mt-2 text-sm font-semibold text-steel-400">출처 추적성 보장</p>
             </div>
@@ -121,11 +119,11 @@
     </section>
 
     <!-- ═══════════════════ WORKFLOW DIAGRAM ═══════════════════ -->
-    <section class="relative overflow-hidden py-20 fade-in">
-      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+    <section class="relative overflow-hidden bg-ink-950 py-20 fade-in">
+      <div class="absolute inset-0 bg-ink-950"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
         <div class="mb-14 text-center">
-          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Agent Workflow</h2>
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Agent Workflow</h2>
           <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">에이전트 작동 흐름</h3>
           <p class="mx-auto mt-4 max-w-2xl text-steel-200 text-[0.95rem]">입력에서 출력까지, 자동화된 인허가 문서 처리 파이프라인</p>
         </div>
@@ -133,8 +131,8 @@
         <!-- Horizontal workflow on desktop, vertical on mobile -->
         <div class="flex flex-col md:flex-row items-center gap-4 md:gap-0 max-w-4xl mx-auto">
           <!-- Step 1: Input -->
-          <div class="flex-1 glass-dark rounded-2xl p-6 text-center w-full">
-            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+          <div class="flex-1 rounded-lg border border-white/15 bg-ink-900 p-6 text-center w-full">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">input</span>
             </div>
             <h4 class="text-base font-bold text-white mb-2">Input</h4>
@@ -147,8 +145,8 @@
           </div>
 
           <!-- Step 2: Agent Action -->
-          <div class="flex-[2] rounded-2xl p-6 text-center w-full border-2 border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-teal-500/5">
-            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+          <div class="flex-[2] rounded-lg border border-white/15 bg-ink-900 p-6 text-center w-full">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">smart_toy</span>
             </div>
             <h4 class="text-base font-bold text-white mb-3">Agent Action</h4>
@@ -169,8 +167,8 @@
           </div>
 
           <!-- Step 3: Output -->
-          <div class="flex-1 glass-dark rounded-2xl p-6 text-center w-full border-t-2 border-amber-500/50">
-            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+          <div class="flex-1 w-full rounded-lg border border-white/15 border-t-2 border-teal-500/50 bg-ink-900 p-6 text-center">
+            <div class="mb-3 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">output</span>
             </div>
             <h4 class="text-base font-bold text-white mb-2">Output</h4>
@@ -189,9 +187,9 @@
           <p class="mx-auto mt-4 max-w-2xl text-steel-400 text-[0.95rem]">Agentic AI가 바꾸는 인허가 업무의 패러다임</p>
         </div>
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 relative">
+        <div class="relative grid grid-cols-1 gap-6 md:grid-cols-2">
           <!-- AS-IS -->
-          <div class="rounded-2xl border border-slate-200 bg-white p-8">
+          <div class="rounded-lg border border-slate-200 bg-white p-8">
             <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-4 py-1.5">
               <span class="material-symbols-outlined text-red-400 text-base">warning</span>
               <span class="text-xs font-bold text-red-500 uppercase tracking-wider">AS-IS</span>
@@ -230,43 +228,43 @@
           </div>
 
           <!-- VS Badge (desktop) -->
-          <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+          <div class="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 md:flex">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500 shadow-sm">
               <span class="material-symbols-outlined text-white text-xl">arrow_forward</span>
             </div>
           </div>
 
           <!-- TO-BE -->
-          <div class="rounded-2xl border-2 border-cyan-500/30 bg-white p-8">
-            <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-cyan-50 border border-cyan-200 px-4 py-1.5">
-              <span class="material-symbols-outlined text-cyan-500 text-base">auto_awesome</span>
-              <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider">TO-BE</span>
+          <div class="rounded-lg border border-teal-500/30 bg-white p-8">
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5">
+              <span class="material-symbols-outlined text-teal-500 text-base">auto_awesome</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-600">TO-BE</span>
             </div>
             <h4 class="text-lg font-bold text-ink-900 mb-5">Agentic AI 적용 후</h4>
             <div class="flex flex-col gap-4">
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5 shrink-0">check_circle</span>
                 <div>
                   <p class="text-sm font-semibold text-ink-900">전체 문서 자동 검색 (수분 이내)</p>
                   <p class="text-xs text-steel-400 mt-0.5">300K+ 문서에서 관련 근거를 즉시 추출</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5 shrink-0">check_circle</span>
                 <div>
                   <p class="text-sm font-semibold text-ink-900">AI 기반 근거 추적 및 인용</p>
                   <p class="text-xs text-steel-400 mt-0.5">모든 결론에 출처와 근거를 자동 연결</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5 shrink-0">check_circle</span>
                 <div>
                   <p class="text-sm font-semibold text-ink-900">문서 초안 자동 생성</p>
                   <p class="text-xs text-steel-400 mt-0.5">인허가 대응 문서의 초안을 구조화된 형태로 생성</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-cyan-500 text-lg mt-0.5 shrink-0">check_circle</span>
+                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5 shrink-0">check_circle</span>
                 <div>
                   <p class="text-sm font-semibold text-ink-900">검토 및 추적성 보장</p>
                   <p class="text-xs text-steel-400 mt-0.5">변경 이력과 영향도를 자동으로 추적·관리</p>
@@ -279,64 +277,64 @@
     </section>
 
     <!-- ═══════════════════ APPLICATIONS ═══════════════════ -->
-    <section class="relative overflow-hidden py-20 fade-in">
-      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+    <section class="relative overflow-hidden bg-ink-950 py-20 fade-in">
+      <div class="absolute inset-0 bg-ink-950"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
         <div class="mb-14 text-center">
-          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Applications</h2>
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Applications</h2>
           <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">적용 분야</h3>
           <p class="mx-auto mt-4 max-w-2xl text-steel-200 text-[0.95rem]">원자력 밸류체인 전반에 걸친 AI 자동화</p>
         </div>
         <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
           <!-- Operators -->
-          <div class="glass-dark rounded-2xl p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">business</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-white">운영사</h4>
-            <p class="text-xs text-cyan-400/80 font-semibold uppercase tracking-wider mb-3">Operators</p>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-teal-500/80">Operators</p>
             <p class="text-sm leading-relaxed text-steel-200 mb-4">규정 준수 문서 자동화를 통해 운영 인허가 관련 문서 작업의 효율을 극대화합니다.</p>
             <ul class="flex flex-col gap-2">
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 규제 보고서 자동 생성
               </li>
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 정기 검사 문서 관리
               </li>
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-cyan-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 변경 관리 이력 추적
               </li>
             </ul>
           </div>
           <!-- Manufacturing -->
-          <div class="glass-dark rounded-2xl p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">factory</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-white">제조사</h4>
-            <p class="text-xs text-amber-400/80 font-semibold uppercase tracking-wider mb-3">Manufacturing</p>
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-teal-500/80">Manufacturing</p>
             <p class="text-sm leading-relaxed text-steel-200 mb-4">설계 검증 자동화로 제조 단계의 품질 보증과 문서 관리를 체계화합니다.</p>
             <ul class="flex flex-col gap-2">
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 설계-제조 연계 검증
               </li>
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 품질 기록 자동화
               </li>
               <li class="flex items-center gap-2 text-xs text-steel-300">
-                <span class="h-1 w-1 rounded-full bg-amber-400"></span>
+                <span class="h-1 w-1 rounded-full bg-teal-500"></span>
                 공급망 문서 추적
               </li>
             </ul>
           </div>
           <!-- Licensing -->
-          <div class="glass-dark rounded-2xl p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-500">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">gavel</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-white">인허가</h4>
@@ -369,24 +367,24 @@
           <h3 class="text-2xl font-black text-ink-900 md:text-3xl tracking-tight">공동 개발 파트너</h3>
         </div>
         <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+          <div class="rounded-lg border border-slate-200 bg-white p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
               <span class="material-symbols-outlined text-2xl">science</span>
             </div>
             <h4 class="text-lg font-bold text-ink-900">KAERI</h4>
             <p class="text-xs text-steel-400 mt-1">한국원자력연구원</p>
             <p class="mt-3 text-sm text-steel-400 leading-relaxed">원자력 핵심 기술 기반 확보 및 인허가 자동화 공동 연구</p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div class="rounded-lg border border-slate-200 bg-white p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500">
               <span class="material-symbols-outlined text-2xl">school</span>
             </div>
             <h4 class="text-lg font-bold text-ink-900">KAIST</h4>
             <p class="text-xs text-steel-400 mt-1">한국과학기술원</p>
             <p class="mt-3 text-sm text-steel-400 leading-relaxed">AI/ML 핵심 알고리즘 및 자연어 처리 기술 공동 개발</p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+          <div class="rounded-lg border border-slate-200 bg-white p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
               <span class="material-symbols-outlined text-2xl">hub</span>
             </div>
             <h4 class="text-lg font-bold text-ink-900">산업 파트너</h4>

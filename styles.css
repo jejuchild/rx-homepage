@@ -5,24 +5,6 @@
 /* ── Base ─────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
-/* ── Glass Effects ────────────────────────────────────── */
-.glass-dark {
-  background: linear-gradient(160deg, rgba(11, 24, 37, 0.88), rgba(14, 41, 64, 0.88));
-  border: 1px solid rgba(171, 203, 224, 0.14);
-  backdrop-filter: blur(12px);
-}
-
-.glass-hero {
-  background: linear-gradient(160deg, rgba(11, 24, 37, 0.84), rgba(14, 41, 64, 0.84));
-  border: 1px solid rgba(171, 203, 224, 0.14);
-}
-
-.glass-light {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(12px);
-}
-
 /* ── Accent Top Borders ───────────────────────────────── */
 .accent-top::before {
   content: '';
@@ -39,7 +21,7 @@ html { scroll-behavior: smooth; }
 /* ── Scroll Animation ─────────────────────────────────── */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .fade-in.show {
@@ -68,7 +50,7 @@ html { scroll-behavior: smooth; }
 
 /* ── Active Nav Link ──────────────────────────────────── */
 .nav-active {
-  color: #3db8e8 !important;
+  color: #3db8e8;
 }
 
 /* ── Org Chart Connector Lines ────────────────────────── */
@@ -106,16 +88,6 @@ html { scroll-behavior: smooth; }
   width: 12px;
   border-radius: 50%;
   border: 2px solid white;
-  ring: 4px;
-}
-
-/* ── Card Hover ───────────────────────────────────────── */
-.card-lift {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Contact Form ─────────────────────────────────────── */
@@ -136,14 +108,6 @@ html { scroll-behavior: smooth; }
 }
 .form-input::placeholder {
   color: #8ea8bc;
-}
-
-/* ── Gradient Text Utility ────────────────────────────── */
-.gradient-text {
-  background: linear-gradient(135deg, #3db8e8, #156082);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* ── VS Comparison ────────────────────────────────────── */

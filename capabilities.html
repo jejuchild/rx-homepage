@@ -30,7 +30,7 @@
 <body class="bg-ink-950 font-sans text-ink-900 antialiased">
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
     <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
@@ -42,7 +42,7 @@
         <a href="contact.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
       </nav>
       <div class="flex items-center gap-4">
-        <button id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -50,10 +50,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950/98 backdrop-blur-xl flex flex-col">
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
       <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
-      <button id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -70,9 +70,8 @@
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="page-header py-16 lg:py-20 relative overflow-hidden">
-      <div class="pointer-events-none absolute -top-36 -left-32 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 opacity-[0.08] blur-[80px]"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
-        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Core Capabilities</h2>
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Core Capabilities</h2>
         <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">SMR 1차 계통<br>설계 · 해석 · 시험 · 인허가</h1>
         <p class="mt-4 max-w-2xl text-steel-200 text-base">원자로 개발의 모든 단계에 필요한 핵심 요소기술을 보유하고 있습니다.</p>
       </div>
@@ -83,8 +82,8 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <!-- Design -->
-          <div class="group accent-top accent-teal relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+          <div class="group accent-top accent-teal relative overflow-hidden rounded-lg border border-slate-200 bg-white p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">architecture</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-ink-900">설계 Design</h4>
@@ -96,8 +95,8 @@
             </ul>
           </div>
           <!-- Analysis -->
-          <div class="group accent-top accent-cyan relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+          <div class="group accent-top accent-cyan relative overflow-hidden rounded-lg border border-slate-200 bg-white p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">analytics</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-ink-900">해석 Analysis</h4>
@@ -109,8 +108,8 @@
             </ul>
           </div>
           <!-- Testing -->
-          <div class="group accent-top accent-amber relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+          <div class="group accent-top accent-amber relative overflow-hidden rounded-lg border border-slate-200 bg-white p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">science</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-ink-900">시험 Testing</h4>
@@ -122,16 +121,16 @@
             </ul>
           </div>
           <!-- Licensing -->
-          <div class="group accent-top accent-green relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 card-lift">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
+          <div class="group accent-top accent-green relative overflow-hidden rounded-lg border border-slate-200 bg-white p-7">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
               <span class="material-symbols-outlined text-2xl">verified_user</span>
             </div>
             <h4 class="mb-2 text-base font-bold text-ink-900">인허가 Licensing</h4>
             <p class="text-sm leading-relaxed text-steel-400">규제 요구사항-근거 자동 매핑, 문서 패키징, 변경 영향도 분석 자동화로 인허가 준비 리드타임을 단축합니다.</p>
             <ul class="mt-4 flex flex-col gap-1.5">
-              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-green-600"></span>규제 문서 매핑</li>
-              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-green-600"></span>변경 영향도 분석</li>
-              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-green-600"></span>인허가 문서 패키징</li>
+              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-teal-500"></span>규제 문서 매핑</li>
+              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-teal-500"></span>변경 영향도 분석</li>
+              <li class="flex items-center gap-2 text-xs text-steel-400"><span class="h-1 w-1 rounded-full bg-teal-500"></span>인허가 문서 패키징</li>
             </ul>
           </div>
         </div>
@@ -139,11 +138,11 @@
     </section>
 
     <!-- ═══════════════════ CAPABILITY ORG CHART ═══════════════════ -->
-    <section class="relative overflow-hidden py-20 fade-in">
-      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+    <section class="relative overflow-hidden bg-ink-950 py-20 fade-in">
+      <div class="absolute inset-0 bg-ink-950"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
         <div class="mb-14 text-center">
-          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Organization</h2>
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Organization</h2>
           <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">역량 체계도</h3>
           <p class="mx-auto mt-4 max-w-2xl text-steel-200 text-[0.95rem]">PM에서 인허가까지, 체계적 엔지니어링 구조</p>
         </div>
@@ -151,8 +150,8 @@
         <!-- Org Chart -->
         <div class="flex flex-col items-center gap-6">
           <!-- Level 1: PM -->
-          <div class="glass-dark rounded-2xl px-8 py-4 text-center">
-            <p class="text-sm font-bold text-cyan-400 uppercase tracking-wider">PM</p>
+          <div class="rounded-lg border border-white/15 bg-ink-900 px-8 py-4 text-center">
+            <p class="text-sm font-bold text-teal-500 uppercase tracking-wider">PM</p>
             <p class="text-xs text-steel-300 mt-1">Project Management</p>
           </div>
 
@@ -163,23 +162,23 @@
 
           <!-- Level 2: Core Disciplines -->
           <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 w-full max-w-3xl">
-            <div class="glass-dark rounded-xl px-4 py-4 text-center">
-              <span class="material-symbols-outlined text-cyan-400 text-xl mb-2">water_drop</span>
+            <div class="rounded-lg border border-white/15 bg-ink-900 px-4 py-4 text-center">
+              <span class="material-symbols-outlined text-teal-500 text-xl mb-2">water_drop</span>
               <p class="text-sm font-bold text-white">유체계통 설계</p>
               <p class="text-[0.65rem] text-steel-300 mt-1">Fluid System Design</p>
             </div>
-            <div class="glass-dark rounded-xl px-4 py-4 text-center">
-              <span class="material-symbols-outlined text-cyan-400 text-xl mb-2">settings</span>
+            <div class="rounded-lg border border-white/15 bg-ink-900 px-4 py-4 text-center">
+              <span class="material-symbols-outlined text-teal-500 text-xl mb-2">settings</span>
               <p class="text-sm font-bold text-white">기계 설계</p>
               <p class="text-[0.65rem] text-steel-300 mt-1">Mechanical Design</p>
             </div>
-            <div class="glass-dark rounded-xl px-4 py-4 text-center">
+            <div class="rounded-lg border border-white/15 bg-ink-900 px-4 py-4 text-center">
               <span class="material-symbols-outlined text-amber-400 text-xl mb-2">shield</span>
               <p class="text-sm font-bold text-white">안전 해석</p>
               <p class="text-[0.65rem] text-steel-300 mt-1">Safety Analysis</p>
             </div>
-            <div class="glass-dark rounded-xl px-4 py-4 text-center">
-              <span class="material-symbols-outlined text-cyan-400 text-xl mb-2">blur_circular</span>
+            <div class="rounded-lg border border-white/15 bg-ink-900 px-4 py-4 text-center">
+              <span class="material-symbols-outlined text-teal-500 text-xl mb-2">blur_circular</span>
               <p class="text-sm font-bold text-white">노심 설계</p>
               <p class="text-[0.65rem] text-steel-300 mt-1">Core Design</p>
             </div>
@@ -192,16 +191,16 @@
 
           <!-- Level 3: Support Disciplines -->
           <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 w-full max-w-3xl">
-            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
+            <div class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-center">
               <p class="text-xs font-bold text-steel-100">MMIS (계측제어)</p>
             </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
+            <div class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-center">
               <p class="text-xs font-bold text-steel-100">중대사고 해석</p>
             </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
+            <div class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-center">
               <p class="text-xs font-bold text-steel-100">PSA</p>
             </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
+            <div class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-center">
               <p class="text-xs font-bold text-steel-100">V&V</p>
             </div>
           </div>
@@ -212,8 +211,8 @@
           </div>
 
           <!-- Level 4: Licensing -->
-          <div class="glass-dark rounded-2xl px-8 py-4 text-center border-t-2 border-amber-500/60">
-            <p class="text-sm font-bold text-amber-400 uppercase tracking-wider">Licensing</p>
+          <div class="rounded-lg border border-white/15 border-t-2 border-teal-500/60 bg-ink-900 px-8 py-4 text-center">
+            <p class="text-sm font-bold text-teal-500 uppercase tracking-wider">Licensing</p>
             <p class="text-xs text-steel-300 mt-1">인허가 문서 체계 구축 및 자동화</p>
           </div>
         </div>
@@ -231,9 +230,9 @@
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <!-- Tech 1: Material Property -->
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 card-lift">
+          <div class="rounded-lg border border-slate-200 bg-white p-8">
             <div class="flex items-start gap-4 mb-5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
                 <span class="material-symbols-outlined text-2xl">biotech</span>
               </div>
               <div>
@@ -253,9 +252,9 @@
           </div>
 
           <!-- Tech 2: SG Design Platform -->
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 card-lift">
+          <div class="rounded-lg border border-slate-200 bg-white p-8">
             <div class="flex items-start gap-4 mb-5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500">
                 <span class="material-symbols-outlined text-2xl">developer_board</span>
               </div>
               <div>
@@ -275,9 +274,9 @@
           </div>
 
           <!-- Tech 3: RCP MIV -->
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 card-lift">
+          <div class="rounded-lg border border-slate-200 bg-white p-8">
             <div class="flex items-start gap-4 mb-5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
                 <span class="material-symbols-outlined text-2xl">rotate_right</span>
               </div>
               <div>
@@ -297,9 +296,9 @@
           </div>
 
           <!-- Tech 4: Mechanical/Structural/Seismic -->
-          <div class="rounded-2xl border border-slate-200 bg-white p-8 card-lift">
+          <div class="rounded-lg border border-slate-200 bg-white p-8">
             <div class="flex items-start gap-4 mb-5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
                 <span class="material-symbols-outlined text-2xl">construction</span>
               </div>
               <div>
@@ -322,30 +321,30 @@
     </section>
 
     <!-- ═══════════════════ DELIVERY APPROACH ═══════════════════ -->
-    <section class="relative overflow-hidden py-20 fade-in">
-      <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950"></div>
+    <section class="relative overflow-hidden bg-ink-950 py-20 fade-in">
+      <div class="absolute inset-0 bg-ink-950"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
         <div class="mb-14 text-center">
-          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Delivery Approach</h2>
+          <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Delivery Approach</h2>
           <h3 class="text-2xl font-black text-white md:text-3xl tracking-tight">프로젝트 실행 방식</h3>
         </div>
         <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <div class="glass-dark rounded-2xl p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">description</span>
             </div>
             <h4 class="text-base font-bold text-white mb-2">설계 패키지</h4>
             <p class="text-sm text-steel-200 leading-relaxed">계산서, 도면, 근거자료를 포함한 완결형 설계 패키지를 고객 요구에 맞춰 신속 생산</p>
           </div>
-          <div class="glass-dark rounded-2xl p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">verified_user</span>
             </div>
             <h4 class="text-base font-bold text-white mb-2">인허가 대응</h4>
             <p class="text-sm text-steel-200 leading-relaxed">규제 기관 요구사항에 맞는 인허가 문서 패키지 구축 및 변경 영향도 관리</p>
           </div>
-          <div class="glass-dark rounded-2xl p-7 text-center">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+          <div class="rounded-lg border border-white/15 bg-ink-900 p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/20 text-teal-500">
               <span class="material-symbols-outlined text-2xl">smart_toy</span>
             </div>
             <h4 class="text-base font-bold text-white mb-2">자동화 워크플로우</h4>

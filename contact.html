@@ -30,7 +30,7 @@
 <body class="bg-ink-950 font-sans text-ink-900 antialiased">
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
     <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
@@ -42,7 +42,7 @@
         <a href="contact.html" class="text-sm font-semibold nav-active transition-colors">Contact</a>
       </nav>
       <div class="flex items-center gap-4">
-        <button id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -50,10 +50,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950/98 backdrop-blur-xl flex flex-col">
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
       <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
-      <button id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -70,9 +70,8 @@
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="page-header py-16 lg:py-20 relative overflow-hidden">
-      <div class="pointer-events-none absolute -top-36 -left-32 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 opacity-[0.08] blur-[80px]"></div>
       <div class="relative z-10 mx-auto max-w-site px-6 lg:px-10">
-        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 mb-3">Contact</h2>
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-teal-500 mb-3">Contact</h2>
         <h1 class="text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">Contact Us</h1>
         <p class="mt-4 max-w-2xl text-steel-200 text-base">SMR 설계·해석·시험·인허가에 관한 문의를 환영합니다.</p>
       </div>
@@ -87,7 +86,7 @@
         </div>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <!-- HQ Daejeon -->
-          <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden card-lift">
+          <div class="overflow-hidden rounded-lg border border-slate-200 bg-white">
             <div class="grid grid-cols-2 gap-1">
               <div class="h-48 overflow-hidden">
                 <img src="rx_images/office_1.jpg" alt="RX 본사 사무실" class="h-full w-full object-cover">
@@ -124,7 +123,7 @@
           </div>
 
           <!-- Seoul Branch -->
-          <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden card-lift">
+          <div class="overflow-hidden rounded-lg border border-slate-200 bg-white">
             <div class="grid grid-cols-2 gap-1">
               <div class="h-48 overflow-hidden">
                 <img src="rx_images/office_2.jpg" alt="RX 서울지사" class="h-full w-full object-cover">
@@ -160,16 +159,16 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
           <!-- Email -->
-          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
               <span class="material-symbols-outlined text-2xl">mail</span>
             </div>
             <h4 class="text-base font-bold text-ink-900 mb-2">Email</h4>
-            <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-500 hover:underline font-semibold">khlee@rx.energy</a>
+            <a href="mailto:khlee@rx.energy" class="text-sm font-semibold text-teal-500 hover:underline">khlee@rx.energy</a>
           </div>
           <!-- Phone -->
-          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-500/10 text-teal-500">
+          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
               <span class="material-symbols-outlined text-2xl">call</span>
             </div>
             <h4 class="text-base font-bold text-ink-900 mb-2">Phone</h4>
@@ -177,17 +176,17 @@
             <p class="text-xs text-steel-400 mt-1">평일 09:00 – 18:00 (KST)</p>
           </div>
           <!-- Web -->
-          <div class="rounded-2xl border border-slate-200 bg-paper p-7 text-center card-lift">
-            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+          <div class="rounded-lg border border-slate-200 bg-paper p-7 text-center">
+            <div class="mb-4 mx-auto inline-flex h-14 w-14 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500">
               <span class="material-symbols-outlined text-2xl">language</span>
             </div>
             <h4 class="text-base font-bold text-ink-900 mb-2">Web</h4>
-            <a href="https://rx.energy" target="_blank" class="text-sm text-cyan-500 hover:underline font-semibold">rx.energy</a>
+            <a href="https://rx.energy" target="_blank" class="text-sm font-semibold text-teal-500 hover:underline">rx.energy</a>
           </div>
         </div>
 
         <!-- Expertise Tags -->
-        <div class="mt-10 rounded-2xl border border-slate-200 bg-paper p-7 text-center">
+        <div class="mt-10 rounded-lg border border-slate-200 bg-paper p-7 text-center">
           <h4 class="text-base font-bold text-ink-900 mb-4">RX가 도울 수 있는 영역</h4>
           <div class="flex flex-wrap justify-center gap-2">
             <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-steel-400">1차 계통 설계</span>
