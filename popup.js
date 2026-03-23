@@ -40,14 +40,14 @@
     overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;padding:24px;';
 
     const card = document.createElement('div');
-    card.style.cssText = 'background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:16px;width:100%;max-width:440px;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.5);';
+    card.style.cssText = 'background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 25px 50px rgba(0,0,0,0.5);';
 
     let html = '';
 
     // Image
     if (popup.image_url) {
-      html += `<div style="width:100%;max-height:260px;overflow:hidden;">
-        <img src="${esc(popup.image_url)}" alt="" style="width:100%;height:auto;display:block;object-fit:cover;">
+      html += `<div style="width:100%;">
+        <img src="${esc(popup.image_url)}" alt="" style="width:100%;height:auto;display:block;">
       </div>`;
     }
 
