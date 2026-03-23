@@ -202,6 +202,37 @@ function openModal(title, fieldsHTML, onSubmit) {
     await onSubmit();
     closeModal();
   };
+
+  // Hook up OG fetch button if present
+  const fetchBtn = document.getElementById('fetch-og-btn');
+  if (fetchBtn) {
+    fetchBtn.addEventListener('click', async () => {
+      const linkInput = $modalForm.querySelector('[name="link_url"]');
+      const imgInput = $modalForm.querySelector('[name="image_url"]');
+      if (!linkInput.value) { toast('Enter a Link URL first', 'error'); return; }
+
+      fetchBtn.textContent = 'Fetching...';
+      fetchBtn.disabled = true;
+      try {
+        const resp = await fetch(`/api/og-image?url=${encodeURIComponent(linkInput.value)}`);
+        const data = await resp.json();
+        if (data.image) {
+          imgInput.value = data.image;
+          const preview = document.getElementById('og-preview');
+          const previewImg = document.getElementById('og-preview-img');
+          previewImg.src = data.image;
+          preview.classList.remove('hidden');
+          toast('Thumbnail fetched');
+        } else {
+          toast('No thumbnail found', 'error');
+        }
+      } catch (err) {
+        toast('Fetch failed', 'error');
+      }
+      fetchBtn.textContent = 'Fetch Thumbnail';
+      fetchBtn.disabled = false;
+    });
+  }
 }
 
 function closeModal() { $modal.classList.add('hidden'); $modalForm.onsubmit = null; }
@@ -297,8 +328,22 @@ function newsFormHTML(n = {}) {
       ${inputField('Date', 'date', n.date || new Date().toISOString().split('T')[0], 'date', true)}
       ${inputField('Sort Order', 'sort_order', n.sort_order ?? 0, 'number')}
     </div>
-    ${inputField('Link URL', 'link_url', n.link_url || '', 'url')}
-    ${inputField('Image URL', 'image_url', n.image_url || '', 'url')}
+    <div>
+      <label class="block text-sm text-steel-300 mb-1">Link URL</label>
+      <div class="flex gap-2">
+        <input type="url" name="link_url" value="${esc(n.link_url || '')}"
+          class="flex-1 px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+        <button type="button" id="fetch-og-btn" class="px-3 py-2 bg-ink-700 border border-white/10 rounded-lg text-xs text-steel-300 hover:text-white transition-colors whitespace-nowrap">Fetch Thumbnail</button>
+      </div>
+    </div>
+    <div>
+      <label class="block text-sm text-steel-300 mb-1">Image URL</label>
+      <input type="url" name="image_url" value="${esc(n.image_url || '')}"
+        class="w-full px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+      <div id="og-preview" class="mt-2 hidden">
+        <img id="og-preview-img" src="" alt="" class="h-24 rounded-lg object-cover opacity-70">
+      </div>
+    </div>
     ${inputField('Published', 'is_published', n.is_published ?? true, 'checkbox')}`;
 }
 
