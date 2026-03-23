@@ -21,7 +21,7 @@
 
     if (!newsItems || newsItems.length === 0) return; // Keep static fallback
 
-    const lang = localStorage.getItem('rx-lang') || 'ko';
+    const lang = localStorage.getItem('rx-lang') || 'en';
 
     // Build news cards
     const cards = newsItems.map(n => {

@@ -29,7 +29,7 @@
     if (dismissedDate === today) return;
 
     // Determine language
-    const lang = localStorage.getItem('rx-lang') || 'ko';
+    const lang = localStorage.getItem('rx-lang') || 'en';
     const title = (lang === 'en' && popup.title_en) ? popup.title_en : popup.title_ko;
     const content = (lang === 'en' && popup.content_en) ? popup.content_en : popup.content_ko;
     const linkText = (lang === 'en' && popup.link_text_en) ? popup.link_text_en : (popup.link_text_ko || '자세히 보기');

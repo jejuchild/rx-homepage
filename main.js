@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Language Toggle ───────────────────────────────── */
-  const savedLang = localStorage.getItem('rx-lang') || 'en';
+  const savedLang = localStorage.getItem('rx-lang') || 'en';  // default: English
   document.body.classList.add(`lang-${savedLang}`);
 
   // Update active states on load
