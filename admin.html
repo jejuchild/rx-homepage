@@ -218,13 +218,10 @@ function openModal(title, fieldsHTML, onSubmit) {
         const data = await resp.json();
         if (data.image) {
           imgInput.value = data.image;
-          const preview = document.getElementById('og-preview');
-          const previewImg = document.getElementById('og-preview-img');
-          previewImg.src = data.image;
-          preview.classList.remove('hidden');
+          showImagePreview(data.image);
           toast('Thumbnail fetched');
         } else {
-          toast('No thumbnail found', 'error');
+          toast('No thumbnail found — try uploading instead', 'error');
         }
       } catch (err) {
         toast('Fetch failed', 'error');
@@ -232,6 +229,53 @@ function openModal(title, fieldsHTML, onSubmit) {
       fetchBtn.textContent = 'Fetch Thumbnail';
       fetchBtn.disabled = false;
     });
+  }
+
+  // Hook up file upload buttons
+  $modalForm.querySelectorAll('[data-upload]').forEach(fileInput => {
+    fileInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const targetName = fileInput.dataset.upload;
+      const targetInput = $modalForm.querySelector(`[name="${targetName}"]`);
+
+      const label = fileInput.closest('label');
+      const origHTML = label.innerHTML;
+      label.innerHTML = '<span class="text-xs text-steel-300">Uploading...</span>';
+
+      try {
+        const ext = file.name.split('.').pop();
+        const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`;
+        const filePath = `uploads/${fileName}`;
+
+        const { error: uploadError } = await sb.storage
+          .from('images')
+          .upload(filePath, file, { cacheControl: '31536000', upsert: false });
+
+        if (uploadError) throw uploadError;
+
+        const { data: urlData } = sb.storage.from('images').getPublicUrl(filePath);
+        targetInput.value = urlData.publicUrl;
+        showImagePreview(urlData.publicUrl);
+        toast('Image uploaded');
+      } catch (err) {
+        toast(err.message || 'Upload failed', 'error');
+      }
+
+      label.innerHTML = origHTML;
+      // Re-attach listener since innerHTML was replaced
+      label.querySelector('[data-upload]')?.addEventListener('change', arguments.callee);
+    });
+  });
+}
+
+function showImagePreview(url) {
+  const preview = document.getElementById('og-preview');
+  const previewImg = document.getElementById('og-preview-img');
+  if (preview && previewImg) {
+    previewImg.src = url;
+    preview.classList.remove('hidden');
   }
 }
 
@@ -338,8 +382,14 @@ function newsFormHTML(n = {}) {
     </div>
     <div>
       <label class="block text-sm text-steel-300 mb-1">Image URL</label>
-      <input type="url" name="image_url" value="${esc(n.image_url || '')}"
-        class="w-full px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+      <div class="flex gap-2">
+        <input type="url" name="image_url" value="${esc(n.image_url || '')}"
+          class="flex-1 px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+        <label class="px-3 py-2 bg-ink-700 border border-white/10 rounded-lg text-xs text-steel-300 hover:text-white transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">upload</span> Upload
+          <input type="file" accept="image/*" class="hidden" data-upload="image_url">
+        </label>
+      </div>
       <div id="og-preview" class="mt-2 hidden">
         <img id="og-preview-img" src="" alt="" class="h-24 rounded-lg object-cover opacity-70">
       </div>
@@ -426,7 +476,17 @@ function popupFormHTML(p = {}) {
       ${inputField('Content (KO)', 'content_ko', p.content_ko || '', 'textarea')}
       ${inputField('Content (EN)', 'content_en', p.content_en || '', 'textarea')}
     </div>
-    ${inputField('Image URL', 'image_url', p.image_url || '', 'url')}
+    <div>
+      <label class="block text-sm text-steel-300 mb-1">Image URL</label>
+      <div class="flex gap-2">
+        <input type="url" name="image_url" value="${esc(p.image_url || '')}"
+          class="flex-1 px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+        <label class="px-3 py-2 bg-ink-700 border border-white/10 rounded-lg text-xs text-steel-300 hover:text-white transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">upload</span> Upload
+          <input type="file" accept="image/*" class="hidden" data-upload="image_url">
+        </label>
+      </div>
+    </div>
     ${inputField('Link URL', 'link_url', p.link_url || '', 'url')}
     <div class="grid grid-cols-2 gap-4">
       ${inputField('Link Text (KO)', 'link_text_ko', p.link_text_ko || '자세히 보기')}
