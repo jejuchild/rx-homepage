@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | RX Inc.</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: '#000000', 900: '#0a0a0b', 800: '#18181b', 700: '#27272a' },
+            steel: { 100: '#fafafa', 200: '#e4e4e7', 300: '#a1a1aa', 400: '#71717a' },
+          },
+          fontFamily: { sans: ['"SUIT Variable"', '"Noto Sans KR"', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <style>
+    .toast { animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s; }
+    @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } }
+    @keyframes fadeOut { to { opacity: 0; } }
+  </style>
+</head>
+<body class="bg-ink-950 font-sans text-white antialiased min-h-screen">
+
+  <!-- ═══════════════════ LOGIN SCREEN ═══════════════════ -->
+  <div id="login-screen" class="min-h-screen flex items-center justify-center px-6">
+    <div class="w-full max-w-sm">
+      <h1 class="text-2xl font-semibold text-center mb-8">RX Admin</h1>
+      <form id="login-form" class="space-y-4">
+        <input type="email" id="login-email" placeholder="Email" required
+          class="w-full px-4 py-3 bg-ink-800 border border-white/10 rounded-lg text-white placeholder-steel-400 focus:outline-none focus:border-white/30">
+        <input type="password" id="login-password" placeholder="Password" required
+          class="w-full px-4 py-3 bg-ink-800 border border-white/10 rounded-lg text-white placeholder-steel-400 focus:outline-none focus:border-white/30">
+        <p id="login-error" class="text-red-400 text-sm hidden"></p>
+        <button type="submit"
+          class="w-full py-3 bg-white text-black font-medium rounded-lg hover:bg-steel-200 transition-colors">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ ADMIN DASHBOARD ═══════════════════ -->
+  <div id="admin-screen" class="hidden">
+    <!-- Header -->
+    <header class="border-b border-white/10 bg-ink-900 sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <h1 class="text-lg font-semibold">RX Admin</h1>
+          <div class="flex gap-1">
+            <button data-tab="news" class="tab-btn px-4 py-1.5 text-sm rounded-lg transition-colors bg-white text-black">News</button>
+            <button data-tab="popups" class="tab-btn px-4 py-1.5 text-sm rounded-lg transition-colors text-steel-400 hover:text-white">Popups</button>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span id="user-email" class="text-sm text-steel-400"></span>
+          <button id="logout-btn" class="text-sm text-steel-400 hover:text-white transition-colors">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+      <!-- ═══════════ NEWS TAB ═══════════ -->
+      <div id="tab-news">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold">News</h2>
+          <button id="add-news-btn" class="px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-steel-200 transition-colors">
+            + Add News
+          </button>
+        </div>
+        <div id="news-list" class="space-y-3"></div>
+      </div>
+
+      <!-- ═══════════ POPUPS TAB ═══════════ -->
+      <div id="tab-popups" class="hidden">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold">Popups</h2>
+          <button id="add-popup-btn" class="px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-steel-200 transition-colors">
+            + Add Popup
+          </button>
+        </div>
+        <div id="popups-list" class="space-y-3"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════ MODAL ═══════════════════ -->
+  <div id="modal-overlay" class="hidden fixed inset-0 z-[100] bg-black/70 flex items-start justify-center pt-16 px-6 overflow-y-auto">
+    <div id="modal-content" class="w-full max-w-2xl bg-ink-800 border border-white/10 rounded-xl mb-16">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <h3 id="modal-title" class="text-lg font-semibold"></h3>
+        <button id="modal-close" class="text-steel-400 hover:text-white">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="modal-form" class="p-6 space-y-5"></form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TOAST ═══════════════════ -->
+  <div id="toast-container" class="fixed top-4 right-4 z-[200] space-y-2"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   RX Admin Dashboard
+   ═══════════════════════════════════════════════════════ */
+const SUPABASE_URL = 'https://sipmsyhmkgiyrphcvhch.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpcG1zeWhta2dpeXJwaGN2aGNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTUzMjcsImV4cCI6MjA4NzMzMTMyN30.8ACbUrfS-kXXSauCN-9Qt_hLXIbvSQZlBdRHDId3dBQ';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+/* ── DOM refs ──────────────────────────────────────── */
+const $login     = document.getElementById('login-screen');
+const $admin     = document.getElementById('admin-screen');
+const $loginForm = document.getElementById('login-form');
+const $loginErr  = document.getElementById('login-error');
+const $userEmail = document.getElementById('user-email');
+const $modal     = document.getElementById('modal-overlay');
+const $modalTitle = document.getElementById('modal-title');
+const $modalForm = document.getElementById('modal-form');
+
+let currentTab = 'news';
+
+/* ── Auth ──────────────────────────────────────────── */
+async function initAuth() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) showAdmin(session.user);
+}
+
+$loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  $loginErr.classList.add('hidden');
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  if (error) {
+    $loginErr.textContent = error.message;
+    $loginErr.classList.remove('hidden');
+    return;
+  }
+  showAdmin(data.user);
+});
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+  await sb.auth.signOut();
+  location.reload();
+});
+
+function showAdmin(user) {
+  $login.classList.add('hidden');
+  $admin.classList.remove('hidden');
+  $userEmail.textContent = user.email;
+  loadNews();
+  loadPopups();
+}
+
+/* ── Tabs ──────────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentTab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.toggle('bg-white', b.dataset.tab === currentTab);
+      b.classList.toggle('text-black', b.dataset.tab === currentTab);
+      b.classList.toggle('text-steel-400', b.dataset.tab !== currentTab);
+    });
+    document.getElementById('tab-news').classList.toggle('hidden', currentTab !== 'news');
+    document.getElementById('tab-popups').classList.toggle('hidden', currentTab !== 'popups');
+  });
+});
+
+/* ── Toast ─────────────────────────────────────────── */
+function toast(msg, type = 'success') {
+  const el = document.createElement('div');
+  const bg = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+  el.className = `toast px-4 py-2 rounded-lg text-sm text-white ${bg}`;
+  el.textContent = msg;
+  document.getElementById('toast-container').appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+/* ── Modal ─────────────────────────────────────────── */
+function openModal(title, fieldsHTML, onSubmit) {
+  $modalTitle.textContent = title;
+  $modalForm.innerHTML = fieldsHTML + `
+    <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
+      <button type="button" id="modal-cancel" class="px-4 py-2 text-sm text-steel-400 hover:text-white transition-colors">Cancel</button>
+      <button type="submit" class="px-6 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-steel-200 transition-colors">Save</button>
+    </div>`;
+  $modal.classList.remove('hidden');
+
+  document.getElementById('modal-cancel').addEventListener('click', closeModal);
+  $modalForm.onsubmit = async (e) => {
+    e.preventDefault();
+    await onSubmit();
+    closeModal();
+  };
+}
+
+function closeModal() { $modal.classList.add('hidden'); $modalForm.onsubmit = null; }
+document.getElementById('modal-close').addEventListener('click', closeModal);
+$modal.addEventListener('click', (e) => { if (e.target === $modal) closeModal(); });
+
+/* ── Helpers ───────────────────────────────────────── */
+function esc(str) {
+  if (!str) return '';
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function inputField(label, name, value = '', type = 'text', required = false) {
+  const req = required ? 'required' : '';
+  if (type === 'textarea') {
+    return `<div>
+      <label class="block text-sm text-steel-300 mb-1">${label}</label>
+      <textarea name="${name}" rows="3" ${req}
+        class="w-full px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">${esc(value)}</textarea>
+    </div>`;
+  }
+  if (type === 'checkbox') {
+    const checked = value ? 'checked' : '';
+    return `<label class="flex items-center gap-2 cursor-pointer">
+      <input type="checkbox" name="${name}" ${checked} class="w-4 h-4 accent-white">
+      <span class="text-sm text-steel-300">${label}</span>
+    </label>`;
+  }
+  return `<div>
+    <label class="block text-sm text-steel-300 mb-1">${label}</label>
+    <input type="${type}" name="${name}" value="${esc(value)}" ${req}
+      class="w-full px-3 py-2 bg-ink-900 border border-white/10 rounded-lg text-white text-sm placeholder-steel-400 focus:outline-none focus:border-white/30">
+  </div>`;
+}
+
+function getFormData(form) {
+  const data = {};
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    if (el.type === 'checkbox') data[el.name] = el.checked;
+    else data[el.name] = el.value;
+  });
+  return data;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NEWS CRUD
+   ═══════════════════════════════════════════════════════ */
+async function loadNews() {
+  const { data, error } = await sb.from('news').select('*').order('date', { ascending: false }).order('sort_order');
+  if (error) { toast(error.message, 'error'); return; }
+
+  document.getElementById('news-list').innerHTML = data.length === 0
+    ? '<p class="text-steel-400 text-sm">No news yet.</p>'
+    : data.map(n => `
+      <div class="flex items-center gap-4 p-4 bg-ink-800 border border-white/10 rounded-lg">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-block px-2 py-0.5 text-[10px] rounded-full border ${n.is_published ? 'border-green-500/30 text-green-400' : 'border-steel-400/30 text-steel-400'}">${n.is_published ? 'Published' : 'Draft'}</span>
+            <span class="text-xs text-steel-400">${esc(n.category)}</span>
+            <span class="text-xs text-steel-400">${esc(n.date)}</span>
+          </div>
+          <p class="text-sm text-white truncate">${esc(n.title_ko)}</p>
+          <p class="text-xs text-steel-400 truncate">${esc(n.title_en)}</p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button onclick="toggleNewsPublish(${n.id}, ${!n.is_published})" class="p-2 text-steel-400 hover:text-white transition-colors" title="${n.is_published ? 'Unpublish' : 'Publish'}">
+            <span class="material-symbols-outlined text-xl">${n.is_published ? 'visibility_off' : 'visibility'}</span>
+          </button>
+          <button onclick="editNews(${n.id})" class="p-2 text-steel-400 hover:text-white transition-colors" title="Edit">
+            <span class="material-symbols-outlined text-xl">edit</span>
+          </button>
+          <button onclick="deleteNews(${n.id})" class="p-2 text-steel-400 hover:text-red-400 transition-colors" title="Delete">
+            <span class="material-symbols-outlined text-xl">delete</span>
+          </button>
+        </div>
+      </div>`).join('');
+}
+
+function newsFormHTML(n = {}) {
+  return `
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Title (KO)', 'title_ko', n.title_ko || '', 'text', true)}
+      ${inputField('Title (EN)', 'title_en', n.title_en || '')}
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Summary (KO)', 'summary_ko', n.summary_ko || '', 'textarea')}
+      ${inputField('Summary (EN)', 'summary_en', n.summary_en || '', 'textarea')}
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+      ${inputField('Category', 'category', n.category || 'News')}
+      ${inputField('Date', 'date', n.date || new Date().toISOString().split('T')[0], 'date', true)}
+      ${inputField('Sort Order', 'sort_order', n.sort_order ?? 0, 'number')}
+    </div>
+    ${inputField('Link URL', 'link_url', n.link_url || '', 'url')}
+    ${inputField('Image URL', 'image_url', n.image_url || '', 'url')}
+    ${inputField('Published', 'is_published', n.is_published ?? true, 'checkbox')}`;
+}
+
+document.getElementById('add-news-btn').addEventListener('click', () => {
+  openModal('Add News', newsFormHTML(), async () => {
+    const d = getFormData($modalForm);
+    d.sort_order = parseInt(d.sort_order) || 0;
+    const { error } = await sb.from('news').insert(d);
+    if (error) toast(error.message, 'error');
+    else { toast('News added'); loadNews(); }
+  });
+});
+
+window.editNews = async (id) => {
+  const { data } = await sb.from('news').select('*').eq('id', id).single();
+  if (!data) return;
+  openModal('Edit News', newsFormHTML(data), async () => {
+    const d = getFormData($modalForm);
+    d.sort_order = parseInt(d.sort_order) || 0;
+    d.updated_at = new Date().toISOString();
+    const { error } = await sb.from('news').update(d).eq('id', id);
+    if (error) toast(error.message, 'error');
+    else { toast('News updated'); loadNews(); }
+  });
+};
+
+window.toggleNewsPublish = async (id, publish) => {
+  const { error } = await sb.from('news').update({ is_published: publish, updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) toast(error.message, 'error');
+  else { toast(publish ? 'Published' : 'Unpublished'); loadNews(); }
+};
+
+window.deleteNews = async (id) => {
+  if (!confirm('Delete this news?')) return;
+  const { error } = await sb.from('news').delete().eq('id', id);
+  if (error) toast(error.message, 'error');
+  else { toast('Deleted'); loadNews(); }
+};
+
+/* ═══════════════════════════════════════════════════════
+   POPUPS CRUD
+   ═══════════════════════════════════════════════════════ */
+async function loadPopups() {
+  const { data, error } = await sb.from('popups').select('*').order('created_at', { ascending: false });
+  if (error) { toast(error.message, 'error'); return; }
+
+  document.getElementById('popups-list').innerHTML = data.length === 0
+    ? '<p class="text-steel-400 text-sm">No popups yet.</p>'
+    : data.map(p => `
+      <div class="flex items-center gap-4 p-4 bg-ink-800 border border-white/10 rounded-lg">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-block px-2 py-0.5 text-[10px] rounded-full border ${p.is_active ? 'border-green-500/30 text-green-400' : 'border-steel-400/30 text-steel-400'}">${p.is_active ? 'Active' : 'Inactive'}</span>
+            ${p.start_date ? `<span class="text-xs text-steel-400">${esc(p.start_date)} ~ ${esc(p.end_date || '...')}</span>` : ''}
+          </div>
+          <p class="text-sm text-white truncate">${esc(p.title_ko)}</p>
+          <p class="text-xs text-steel-400 truncate">${esc(p.title_en)}</p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button onclick="togglePopupActive(${p.id}, ${!p.is_active})" class="p-2 text-steel-400 hover:text-white transition-colors" title="${p.is_active ? 'Deactivate' : 'Activate'}">
+            <span class="material-symbols-outlined text-xl">${p.is_active ? 'toggle_on' : 'toggle_off'}</span>
+          </button>
+          <button onclick="editPopup(${p.id})" class="p-2 text-steel-400 hover:text-white transition-colors" title="Edit">
+            <span class="material-symbols-outlined text-xl">edit</span>
+          </button>
+          <button onclick="deletePopup(${p.id})" class="p-2 text-steel-400 hover:text-red-400 transition-colors" title="Delete">
+            <span class="material-symbols-outlined text-xl">delete</span>
+          </button>
+        </div>
+      </div>`).join('');
+}
+
+function popupFormHTML(p = {}) {
+  return `
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Title (KO)', 'title_ko', p.title_ko || '', 'text', true)}
+      ${inputField('Title (EN)', 'title_en', p.title_en || '')}
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Content (KO)', 'content_ko', p.content_ko || '', 'textarea')}
+      ${inputField('Content (EN)', 'content_en', p.content_en || '', 'textarea')}
+    </div>
+    ${inputField('Image URL', 'image_url', p.image_url || '', 'url')}
+    ${inputField('Link URL', 'link_url', p.link_url || '', 'url')}
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Link Text (KO)', 'link_text_ko', p.link_text_ko || '자세히 보기')}
+      ${inputField('Link Text (EN)', 'link_text_en', p.link_text_en || 'Learn More')}
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      ${inputField('Start Date', 'start_date', p.start_date || '', 'date')}
+      ${inputField('End Date', 'end_date', p.end_date || '', 'date')}
+    </div>
+    ${inputField('Active', 'is_active', p.is_active ?? true, 'checkbox')}`;
+}
+
+document.getElementById('add-popup-btn').addEventListener('click', () => {
+  openModal('Add Popup', popupFormHTML(), async () => {
+    const d = getFormData($modalForm);
+    if (!d.start_date) d.start_date = null;
+    if (!d.end_date) d.end_date = null;
+    const { error } = await sb.from('popups').insert(d);
+    if (error) toast(error.message, 'error');
+    else { toast('Popup added'); loadPopups(); }
+  });
+});
+
+window.editPopup = async (id) => {
+  const { data } = await sb.from('popups').select('*').eq('id', id).single();
+  if (!data) return;
+  openModal('Edit Popup', popupFormHTML(data), async () => {
+    const d = getFormData($modalForm);
+    if (!d.start_date) d.start_date = null;
+    if (!d.end_date) d.end_date = null;
+    d.updated_at = new Date().toISOString();
+    const { error } = await sb.from('popups').update(d).eq('id', id);
+    if (error) toast(error.message, 'error');
+    else { toast('Popup updated'); loadPopups(); }
+  });
+};
+
+window.togglePopupActive = async (id, active) => {
+  const { error } = await sb.from('popups').update({ is_active: active, updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) toast(error.message, 'error');
+  else { toast(active ? 'Activated' : 'Deactivated'); loadPopups(); }
+};
+
+window.deletePopup = async (id) => {
+  if (!confirm('Delete this popup?')) return;
+  const { error } = await sb.from('popups').delete().eq('id', id);
+  if (error) toast(error.message, 'error');
+  else { toast('Deleted'); loadPopups(); }
+};
+
+/* ── Init ──────────────────────────────────────────── */
+initAuth();
+</script>
+</body>
+</html>

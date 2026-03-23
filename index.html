@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RX Inc. | SMR Engineering Partner</title>
+  <meta name="description" content="RX Inc. is a next-generation nuclear engineering company specializing in Small Modular Reactor (SMR) design, licensing, and AI-powered plant solutions.">
+  <meta property="og:title" content="RX Inc. | SMR Engineering Partner">
+  <meta property="og:description" content="Next-generation nuclear engineering — SMR design, licensing, and AI-powered plant solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="rx_images/rx_hero.jpg">
+  <link rel="canonical" href="https://rx.energy/">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
@@ -13,12 +19,12 @@
       theme: {
         extend: {
           colors: {
-            ink: { 950: '#0b1623', 900: '#0e2841', 800: '#13334f', 700: '#1a4568' },
-            steel: { 100: '#d8e2ea', 200: '#b7c7d4', 300: '#8ea8bc', 400: '#6b8da6' },
-            teal: { 500: '#156082', 600: '#114e6a' },
-            cyan: { 400: '#3db8e8', 500: '#0f9ed5' },
-            amber: { 400: '#f3945a', 500: '#e97132' },
-            paper: '#f3f7fb',
+            ink: { 950: '#000000', 900: '#0a0a0b', 800: '#18181b', 700: '#27272a' },
+            steel: { 100: '#fafafa', 200: '#e4e4e7', 300: '#a1a1aa', 400: '#71717a' },
+            teal: { 500: '#27272a', 600: '#18181b' },
+            cyan: { 400: '#ffffff', 500: '#d4d4d8' },
+            amber: { 400: '#d4d4d8', 500: '#a1a1aa' },
+            paper: '#fafafa',
           },
           fontFamily: {
             sans: ['"SUIT Variable"', '"Noto Sans KR"', 'sans-serif'],
@@ -29,81 +35,142 @@
     }
   </script>
 </head>
-<body class="bg-ink-950 font-sans text-ink-900 antialiased">
+<body class="bg-ink-950 font-sans text-white antialiased">
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
     <div class="mx-auto flex max-w-site items-center justify-between px-6 py-4 lg:px-10">
       <a href="index.html" class="flex items-center gap-3">
-        <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+        <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       </a>
       <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
         <a href="capabilities.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Capabilities</a>
         <a href="technology.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Technology</a>
         <a href="contact.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
+        <span class="text-white/20">|</span>
+        <div class="flex items-center gap-1 text-xs">
+          <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
+          <span class="text-white/20">/</span>
+          <button data-lang-toggle="en" class="px-1.5 py-0.5 transition-colors cursor-pointer">EN</button>
+        </div>
       </nav>
       <div class="flex items-center gap-4">
+        <div class="flex md:hidden items-center gap-1 text-xs mr-2">
+          <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
+          <span class="text-white/20">/</span>
+          <button data-lang-toggle="en" class="px-1.5 py-0.5 transition-colors cursor-pointer">EN</button>
+        </div>
         <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
     </div>
+    <div class="nav-accent"></div>
   </header>
 
   <!-- Mobile Navigation -->
   <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
-    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
-      <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-8 w-auto">
+    <div class="flex items-center justify-between px-6 py-4">
+      <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
     <nav class="flex flex-col gap-1 p-6">
-      <a href="index.html" class="py-3 text-lg font-semibold text-cyan-400 border-b border-white/5">Home</a>
-      <a href="about.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">About</a>
-      <a href="capabilities.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Capabilities</a>
-      <a href="technology.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Technology</a>
-      <a href="contact.html" class="py-3 text-lg font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
+      <a href="index.html" class="py-3 text-lg text-cyan-400 border-b border-white/5">Home</a>
+      <a href="about.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">About</a>
+      <a href="capabilities.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Capabilities</a>
+      <a href="technology.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Technology</a>
+      <a href="contact.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors">Contact</a>
     </nav>
   </div>
 
   <main>
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
-    <section class="relative overflow-hidden px-6 py-20 lg:px-10 lg:py-32">
-      <div class="relative z-10 mx-auto max-w-site">
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
-          <!-- Copy — 7 cols -->
-          <div class="flex flex-col gap-6 lg:col-span-7">
-            <div class="flex items-center gap-3">
-              <span class="h-px w-12 bg-teal-500"></span>
-              <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Precision SMR Engineering</span>
-            </div>
-            <h1 class="text-4xl font-black leading-[1.05] tracking-tight text-white md:text-5xl lg:text-7xl">
-              원자로를 만드는 사람들의<br><span class="text-teal-500">엔지니어링 파트너</span>
-            </h1>
-            <p class="max-w-xl text-lg leading-relaxed text-steel-200">
-              RX는 SMR 1차 계통 설계·해석·시험·인허가 전 과정의 기술력을 보유한 실행형 엔지니어링 기업입니다.
-            </p>
-            <div class="flex flex-wrap gap-4 pt-4">
-              <a href="capabilities.html" class="rounded-full bg-teal-500 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-teal-600">
-                핵심 역량 보기
-              </a>
-              <a href="about.html" class="rounded-full border border-white/20 px-7 py-3 text-xs font-bold uppercase tracking-widest text-steel-100 transition-colors hover:border-white/40 hover:text-white">
-                회사 소개
-              </a>
+    <section class="relative overflow-hidden bg-ink-950 py-12 lg:py-20">
+      <div class="relative mx-auto max-w-site px-6 lg:px-10">
+        <div class="relative flex items-center justify-center">
+          <!-- Side image left -->
+          <div class="absolute -left-16 top-1/2 -translate-y-1/2 hidden lg:block w-44 h-80 overflow-hidden rounded-lg opacity-40">
+            <img src="rx_images/industrial_facility.jpg" class="h-full w-full object-cover" alt="Industrial Facility">
+          </div>
+          <!-- Side image right -->
+          <div class="absolute -right-16 top-1/2 -translate-y-1/2 hidden lg:block w-44 h-80 overflow-hidden rounded-lg opacity-40">
+            <img src="rx_images/engineers_working.jpg" class="h-full w-full object-cover" alt="Engineers Working">
+          </div>
+          <!-- Main hero image + text overlay -->
+          <div class="relative w-full max-w-4xl overflow-hidden rounded-xl">
+            <img src="rx_images/rx_hero.jpg" class="w-full h-[360px] md:h-[440px] lg:h-[520px] object-cover" alt="RX SMR Engineering">
+            <div class="absolute inset-0 bg-black/30"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <h1 class="text-3xl md:text-5xl lg:text-7xl font-light text-white leading-[1.15] tracking-tight">
+                Precision SMR<br>Engineering<br>for<br>Safety and Reliability
+              </h1>
+              <p class="mt-6 text-base md:text-lg text-white/70 max-w-lg font-light">
+                <span class="ko">최첨단 SMR 설계, 인허가 경험, 그리고 노하우.</span>
+                <span class="en">With cutting-edge SMR design, license experiences, and knowhow.</span>
+              </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Hero Visual — 5 cols -->
-          <div class="relative lg:col-span-5">
-            <div class="overflow-hidden rounded-lg">
-              <img src="rx_images/hero_building.jpg" alt="RX Inc. Headquarters" class="h-72 w-full object-cover lg:h-96">
+    <!-- ═══════════════════ ABOUT US (Stats) ═══════════════════ -->
+    <section class="bg-ink-950 py-24 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-start">
+          <!-- Left: About text -->
+          <div>
+            <h2 class="text-5xl md:text-6xl font-extralight text-white tracking-tight">About Us</h2>
+            <div class="mt-8 space-y-5 text-base text-steel-300 leading-relaxed font-light">
+              <p>
+                <span class="ko">RX는 원자력 분야의 팹리스(Fabless) 기업으로, SMR 1차 계통 설계·해석·시험·인허가 전 과정의 기술력을 보유하고 있습니다.</span>
+                <span class="en">RX is a nuclear fabless company with full-spectrum capabilities in SMR primary system design, analysis, testing, and licensing.</span>
+              </p>
+              <p>
+                <span class="ko">재료물성 현장검사(ASTM 국제표준), 나선형 증기발생기 설계, RCP 진동하중 해석(BF-TPA) 등 원천기술을 보유하고 있으며, AI 기반 인허가 자동화로 이를 뒷받침합니다.</span>
+                <span class="en">We hold core technologies including on-site material inspection (ASTM international standard), helical steam generator design, and RCP vibration load analysis (BF-TPA), supported by AI-driven licensing automation.</span>
+              </p>
             </div>
-            <div class="absolute -bottom-6 left-6 rounded-lg bg-ink-900 border border-white/10 px-6 py-4 hidden md:block">
-              <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400">KAERI Spinoff</p>
-              <p class="text-3xl font-black text-white leading-none mt-1">2023</p>
+          </div>
+          <!-- Right: Stats grid 2x2 -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="dark-card p-6 lg:p-8">
+              <span class="material-symbols-outlined text-2xl text-steel-400 mb-4 block">rocket_launch</span>
+              <p class="text-4xl lg:text-5xl font-light text-white">2023</p>
+              <p class="mt-3 text-sm text-cyan-400 font-light">
+                <span class="ko">KAERI 스핀오프 설립</span>
+                <span class="en">Founded as KAERI Spinoff</span>
+              </p>
+            </div>
+            <div class="dark-card p-6 lg:p-8">
+              <span class="material-symbols-outlined text-2xl text-steel-400 mb-4 block">verified</span>
+              <p class="text-3xl lg:text-4xl font-light text-white">KAERI 유일</p>
+              <p class="mt-3 text-sm text-cyan-400 font-light">
+                <span class="ko">KAERI 직접 설립 유일 SMR 스타트업</span>
+                <span class="en">Only SMR Startup Directly Founded by KAERI</span>
+              </p>
+            </div>
+            <div class="dark-card p-6 lg:p-8">
+              <span class="material-symbols-outlined text-2xl text-steel-400 mb-4 block">trending_up</span>
+              <p class="text-3xl lg:text-4xl font-light text-white">$2.2<span class="text-lg text-steel-400">T</span></p>
+              <p class="mt-3 text-sm text-cyan-400 font-light">
+                <span class="ko">글로벌 원자력 투자 규모 (2050)</span>
+                <span class="en">Global Nuclear Investment by 2050</span>
+              </p>
+              <p class="mt-1 text-[10px] text-steel-400 font-light">Morgan Stanley, 2025</p>
+            </div>
+            <div class="dark-card p-6 lg:p-8">
+              <span class="material-symbols-outlined text-2xl text-steel-400 mb-4 block">workspace_premium</span>
+              <p class="text-3xl lg:text-4xl font-light text-white">ASTM</p>
+              <p class="mt-3 text-sm text-cyan-400 font-light">
+                <span class="ko">국제 신기술 표준 제정</span>
+                <span class="en">International New Technology Standard</span>
+              </p>
             </div>
           </div>
         </div>
@@ -111,147 +178,288 @@
     </section>
 
     <!-- ═══════════════════ WHY SMR NOW ═══════════════════ -->
-    <section class="bg-paper py-24 fade-in">
+    <section class="bg-ink-900 py-24 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
-        <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-start">
-          <!-- Left: header -->
-          <div class="lg:col-span-4">
-            <div class="flex items-center gap-3 mb-5">
-              <span class="h-px w-12 bg-teal-500"></span>
-              <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Why SMR, Why Now</span>
+        <div class="mb-14">
+          <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Why SMR, Why Now</span>
+          <h3 class="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight leading-tight">
+            <span class="ko">차세대 에너지 수요의 교차점에 SMR이 있습니다</span>
+            <span class="en">SMR stands at the intersection of next-generation energy demand</span>
+          </h3>
+          <p class="mt-4 text-base text-steel-300 font-light max-w-2xl">
+            <span class="ko">급증하는 무탄소 전원 수요, 국가 에너지 정책, 인허가 혁신 필요성이 SMR 시대를 열고 있습니다</span>
+            <span class="en">Surging carbon-free power demand, national energy policy, and the need for licensing innovation are opening the SMR era</span>
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="dark-card overflow-hidden">
+            <div class="h-32 overflow-hidden">
+              <img src="rx_images/datacenter.jpg" alt="Data Center" class="w-full h-full object-cover opacity-60" loading="lazy">
             </div>
-            <h3 class="text-3xl font-black text-ink-900 md:text-4xl tracking-tight leading-tight">
-              차세대 에너지 수요의 교차점에 SMR이 있습니다
-            </h3>
-            <p class="mt-5 text-lg text-steel-400 leading-relaxed">데이터센터, AI, 반도체, 탈탄소 — 급증하는 무탄소 전원 수요에 SMR이 해답이 됩니다</p>
-          </div>
-          <!-- Right: stats grid -->
-          <div class="lg:col-span-8">
-            <div class="grid grid-cols-1 gap-px bg-slate-200 sm:grid-cols-2">
-              <div class="bg-white p-8">
-                <p class="text-4xl font-black text-ink-900 leading-none">01</p>
-                <h4 class="mt-4 text-lg font-bold text-ink-900">Data Centers</h4>
-                <p class="mt-2 text-sm leading-relaxed text-steel-400">AI 인프라의 폭증하는 전력 수요에 안정적 무탄소 베이스로드 전원 공급</p>
-              </div>
-              <div class="bg-white p-8">
-                <p class="text-4xl font-black text-ink-900 leading-none">02</p>
-                <h4 class="mt-4 text-lg font-bold text-ink-900">Semiconductors</h4>
-                <p class="mt-2 text-sm leading-relaxed text-steel-400">반도체 팹의 고품질 안정 전원 및 공정열 수요 충족</p>
-              </div>
-              <div class="bg-white p-8">
-                <p class="text-4xl font-black text-ink-900 leading-none">03</p>
-                <h4 class="mt-4 text-lg font-bold text-ink-900">Decarbonization</h4>
-                <p class="mt-2 text-sm leading-relaxed text-steel-400">산업 열에너지의 탈탄소화 — 수소·암모니아 생산 연계</p>
-              </div>
-              <div class="bg-white p-8">
-                <p class="text-4xl font-black text-ink-900 leading-none">04</p>
-                <h4 class="mt-4 text-lg font-bold text-ink-900">Scalability</h4>
-                <p class="mt-2 text-sm leading-relaxed text-steel-400">모듈형 설계로 수요에 맞춘 단계적 전원 확장</p>
-              </div>
+            <div class="p-8">
+            <p class="text-4xl font-light text-white/20 mb-4">01</p>
+            <h4 class="text-lg font-normal text-white mb-2">Data Centers &amp; AI</h4>
+            <p class="text-sm text-steel-300 font-light leading-relaxed">
+              <span class="ko">빅테크의 AI 인프라 전력 수요가 폭증하고 있으며, 안정적 무탄소 베이스로드 전원으로 SMR이 주목받고 있습니다</span>
+              <span class="en">Big Tech AI infrastructure power demand is surging, with SMR gaining attention as a reliable carbon-free baseload source</span>
+            </p>
             </div>
           </div>
+          <div class="dark-card overflow-hidden">
+            <div class="h-32 overflow-hidden">
+              <img src="rx_images/construction_site.jpg" alt="National SMR Projects" class="w-full h-full object-cover opacity-60" loading="lazy">
+            </div>
+            <div class="p-8">
+            <p class="text-4xl font-light text-white/20 mb-4">02</p>
+            <h4 class="text-lg font-normal text-white mb-2">
+              <span class="ko">국가 SMR 프로젝트</span>
+              <span class="en">National SMR Projects</span>
+            </h4>
+            <p class="text-sm text-steel-300 font-light leading-relaxed">
+              <span class="ko">i-SMR 개발, KHNP K-Cloud, KAERI SMR 기술개발 등 정부 주도 차세대 원전 프로젝트가 본격화되고 있습니다</span>
+              <span class="en">Government-led next-gen nuclear projects including i-SMR development, KHNP K-Cloud, and KAERI SMR R&amp;D are accelerating</span>
+            </p>
+            </div>
+          </div>
+          <div class="dark-card overflow-hidden">
+            <div class="h-32 overflow-hidden">
+              <img src="rx_images/team_engineering.jpg" alt="Licensing Innovation" class="w-full h-full object-cover opacity-60" loading="lazy">
+            </div>
+            <div class="p-8">
+            <p class="text-4xl font-light text-white/20 mb-4">03</p>
+            <h4 class="text-lg font-normal text-white mb-2">
+              <span class="ko">인허가 혁신 필요성</span>
+              <span class="en">Licensing Innovation</span>
+            </h4>
+            <p class="text-sm text-steel-300 font-light leading-relaxed">
+              <span class="ko">수천~만 건의 인허가 문서를 수동으로 처리하는 기존 방식의 비효율 개선이 시급합니다</span>
+              <span class="en">The inefficiency of manually processing thousands of licensing documents urgently needs improvement</span>
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Scale Context -->
+        <div class="mt-12 dark-card p-8">
+          <h4 class="text-sm font-medium uppercase tracking-widest text-cyan-400 mb-6">
+            <span class="ko">원전 1기 건설 규모</span>
+            <span class="en">Scale of a Single Nuclear Plant Build</span>
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div>
+              <p class="text-3xl font-light text-white">700<span class="text-lg text-steel-400">~1,000</span></p>
+              <p class="mt-2 text-xs text-steel-300 font-light"><span class="ko">필요 인력 (명)</span><span class="en">Personnel Required</span></p>
+            </div>
+            <div>
+              <p class="text-3xl font-light text-white">7<span class="text-lg text-steel-400">~15년</span></p>
+              <p class="mt-2 text-xs text-steel-300 font-light"><span class="ko">소요 기간</span><span class="en">Years to Complete</span></p>
+            </div>
+            <div>
+              <p class="text-3xl font-light text-white">6,000<span class="text-lg text-steel-400">억~2조</span></p>
+              <p class="mt-2 text-xs text-steel-300 font-light"><span class="ko">예산 규모 (KRW)</span><span class="en">Budget Scale (KRW)</span></p>
+            </div>
+            <div>
+              <p class="text-3xl font-light text-white">5,000<span class="text-lg text-steel-400">~10K</span></p>
+              <p class="mt-2 text-xs text-steel-300 font-light"><span class="ko">인허가 문서 (건)</span><span class="en">Licensing Documents</span></p>
+            </div>
+          </div>
+          <p class="mt-8 text-base text-steel-200 font-light text-center">
+            <span class="ko">→ 설계 및 인허가의 어려움과 비효율성을 개선하여 — <strong class="text-white font-normal">기간 단축, 비용 절감, 경제성 향상</strong>을 실현합니다</span>
+            <span class="en">→ Improving design & licensing inefficiencies — <strong class="text-white font-normal">reducing time, cost, and enhancing economics</strong></span>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ CORE CAPABILITIES (Overview) ═══════════════════ -->
-    <section class="relative overflow-hidden bg-ink-950 py-32 fade-in">
+    <!-- ═══════════════════ CORE CAPABILITIES ═══════════════════ -->
+    <section class="bg-ink-950 py-28 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="text-center mb-16">
-          <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Core Capabilities</span>
-          <h3 class="mt-4 text-3xl font-black text-white md:text-4xl lg:text-5xl tracking-tight">
-            SMR 1차 계통<br class="hidden md:block"> 설계 · 해석 · 시험 · 인허가
+          <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Core Capabilities</span>
+          <h3 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight">
+            <span class="ko">SMR 설계 · 해석 · 시험 · 인허가</span>
+            <span class="en">SMR Design · Analysis · Testing · Licensing</span>
           </h3>
-          <p class="mx-auto mt-5 max-w-2xl text-lg text-steel-200">RX의 핵심 기술 영역</p>
         </div>
-        <div class="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="bg-ink-950 p-8">
-            <p class="text-sm font-bold uppercase tracking-widest text-teal-500 mb-4">01</p>
-            <h4 class="text-xl font-bold text-white mb-3">설계 Design</h4>
-            <p class="text-sm leading-relaxed text-steel-200">원자로 1차 계통 및 핵심 기기 설계 패키지 개발</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="dark-card p-8">
+            <p class="text-sm font-medium uppercase tracking-widest text-cyan-400 mb-4">01</p>
+            <h4 class="text-xl font-normal text-white mb-3">
+              <span class="ko">설계 Design</span>
+              <span class="en">Design</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-steel-300 font-light">
+              <span class="ko">원자로 핵심 기기 및 계통 설계 패키지 개발</span>
+              <span class="en">Reactor key component and system design package development</span>
+            </p>
           </div>
-          <div class="bg-ink-950 p-8">
-            <p class="text-sm font-bold uppercase tracking-widest text-teal-500 mb-4">02</p>
-            <h4 class="text-xl font-bold text-white mb-3">해석 Analysis</h4>
-            <p class="text-sm leading-relaxed text-steel-200">열수력, 중성자, 구조 해석 등 다분야 시뮬레이션</p>
+          <div class="dark-card p-8">
+            <p class="text-sm font-medium uppercase tracking-widest text-cyan-400 mb-4">02</p>
+            <h4 class="text-xl font-normal text-white mb-3">
+              <span class="ko">해석 Analysis</span>
+              <span class="en">Analysis</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-steel-300 font-light">
+              <span class="ko">열수력, 구조, 지진하중 연계 해석 등 다분야 시뮬레이션</span>
+              <span class="en">Multi-domain simulations: thermal-hydraulic, structural, and seismic load analysis</span>
+            </p>
           </div>
-          <div class="bg-ink-950 p-8">
-            <p class="text-sm font-bold uppercase tracking-widest text-teal-500 mb-4">03</p>
-            <h4 class="text-xl font-bold text-white mb-3">시험 Testing</h4>
-            <p class="text-sm leading-relaxed text-steel-200">인허가 요건 충족 시험 데이터 체계 구축</p>
+          <div class="dark-card p-8">
+            <p class="text-sm font-medium uppercase tracking-widest text-cyan-400 mb-4">03</p>
+            <h4 class="text-xl font-normal text-white mb-3">
+              <span class="ko">시험 Testing</span>
+              <span class="en">Testing</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-steel-300 font-light">
+              <span class="ko">인허가 요건 충족 시험 데이터 체계 구축</span>
+              <span class="en">Building test data systems that meet licensing requirements</span>
+            </p>
           </div>
-          <div class="bg-ink-950 p-8">
-            <p class="text-sm font-bold uppercase tracking-widest text-teal-500 mb-4">04</p>
-            <h4 class="text-xl font-bold text-white mb-3">인허가 Licensing</h4>
-            <p class="text-sm leading-relaxed text-steel-200">규제 요구사항-근거 자동 매핑 및 문서 패키징</p>
+          <div class="dark-card p-8">
+            <p class="text-sm font-medium uppercase tracking-widest text-cyan-400 mb-4">04</p>
+            <h4 class="text-xl font-normal text-white mb-3">
+              <span class="ko">인허가 Licensing</span>
+              <span class="en">Licensing</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-steel-300 font-light">
+              <span class="ko">규제 요구사항-근거 자동 매핑 및 문서 패키징</span>
+              <span class="en">Automated regulatory requirement-evidence mapping and document packaging</span>
+            </p>
           </div>
         </div>
         <div class="mt-12 text-center">
-          <a href="capabilities.html" class="inline-flex items-center gap-2 rounded-full border border-teal-500 px-7 py-3 text-xs font-bold uppercase tracking-widest text-teal-500 transition-colors hover:bg-teal-500 hover:text-white">
-            자세히 보기
+          <a href="capabilities.html" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-white transition-colors font-light">
+            <span class="ko">자세히 보기</span>
+            <span class="en">Learn more</span>
             <span class="material-symbols-outlined text-lg">arrow_forward</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ BUSINESS MODEL ═══════════════════ -->
-    <section class="bg-paper py-24 fade-in">
+    <!-- ═══════════════════ OUR PROJECTS ═══════════════════ -->
+    <section class="bg-ink-900 py-28 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
-        <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
-          <!-- Left: header — 5 cols -->
-          <div class="lg:col-span-5">
-            <div class="flex items-center gap-3 mb-5">
-              <span class="h-px w-12 bg-teal-500"></span>
-              <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Business Model</span>
+        <div class="text-center mb-16">
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-extralight text-white tracking-tight">Our Projects</h3>
+          <p class="mt-4 text-base text-steel-300 font-light">
+            <span class="ko">원자력 산업 전반에 걸친 핵심 엔지니어링 역량</span>
+            <span class="en">Delivering core engineering capabilities across the nuclear industry</span>
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- SMR Design -->
+          <div class="dark-card overflow-hidden group">
+            <div class="relative h-64 md:h-72 overflow-hidden bg-ink-800">
+              <img src="rx_images/smr_crosssection_gao.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" alt="SMR Design" loading="lazy">
+              <span class="absolute top-4 right-4 bg-white/10 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-white/20">SMR Design</span>
             </div>
-            <h3 class="text-3xl font-black text-ink-900 md:text-4xl tracking-tight leading-tight">두 축의 사업 구조로 SMR 생태계 전체를 지원합니다</h3>
+            <div class="p-8">
+              <h4 class="text-xl font-normal text-white mb-3">SMR Primary System Design</h4>
+              <p class="text-sm text-steel-300 font-light leading-relaxed">
+                <span class="ko">SMART/i-SMR 설계·인허가 경험 기반의 차세대 SMR 엔지니어링. 기계 설계, 안전해석, 인허가(SDA) 전 과정을 수행합니다.</span>
+                <span class="en">Next-generation SMR engineering building on SMART/i-SMR design and licensing heritage. Covering mechanical design, safety analysis, and full SDA process.</span>
+              </p>
+            </div>
           </div>
-          <!-- Right: cards — 7 cols -->
-          <div class="lg:col-span-7 flex flex-col gap-6">
-            <!-- Engineering Services -->
-            <div class="rounded-lg border border-slate-200 bg-white p-8">
-              <h4 class="text-xl font-bold text-ink-900 mb-3">Engineering Services</h4>
-              <p class="text-sm text-steel-400 mb-5">SMR IP 개발사에 설계·해석·시험·인허가 요소기술을 공급합니다</p>
-              <ul class="flex flex-col gap-3">
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  1차 계통 설계 패키지
-                </li>
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  인허가 문서 체계 구축
-                </li>
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  자동화 워크플로우 제공
-                </li>
-              </ul>
-              <div class="mt-6 text-xs text-steel-400">
-                <span class="font-bold text-teal-500">고객:</span> SMR IP 개발 회사
+          <!-- AI Solution -->
+          <div class="dark-card overflow-hidden group">
+            <div class="relative h-64 md:h-72 overflow-hidden bg-ink-800">
+              <img src="rx_images/ai_tech.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" alt="AX Control System" loading="lazy">
+              <span class="absolute top-4 right-4 bg-white/10 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-white/20">AI Solution</span>
+            </div>
+            <div class="p-8">
+              <h4 class="text-xl font-normal text-white mb-3">Agentic AI for Nuclear</h4>
+              <p class="text-sm text-steel-300 font-light leading-relaxed">
+                <span class="ko">KAERI·KAIST 공동 개발 중인 원자력 전용 AI 서비스. 규제 기준 자동 매핑과 인허가 문서 초안 생성을 지원합니다. 온프레미스 전용 환경으로 보안을 준수합니다.</span>
+                <span class="en">Nuclear-specific AI service co-developed with KAERI and KAIST. Supports automated regulatory mapping and licensing document drafting in a secure on-premise environment.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ BUSINESS MODEL ═══════════════════ -->
+    <section class="bg-ink-950 py-24 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="mb-14">
+          <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Business Model</span>
+          <h3 class="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight leading-tight">
+            <span class="ko">두 축의 사업 구조로 SMR 생태계 전체를 지원합니다</span>
+            <span class="en">Supporting the entire SMR ecosystem through a dual-axis business structure</span>
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Engineering Services -->
+          <div class="dark-card p-8">
+            <h4 class="text-xl font-normal text-white mb-3">Engineering Services</h4>
+            <p class="text-sm text-steel-300 font-light mb-6">
+              <span class="ko">SMR IP 개발사에 설계·해석·시험·인허가 요소기술을 공급합니다</span>
+              <span class="en">Supplying design, analysis, testing, and licensing element technologies to SMR IP developers</span>
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">SMR 설계 패키지</span>
+                <span class="en">SMR design package</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">인허가 문서 체계 구축</span>
+                <span class="en">Licensing document system development</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">자동화 워크플로우 제공</span>
+                <span class="en">Automated workflow delivery</span>
+              </li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-white/5">
+              <p class="text-[10px] font-medium uppercase tracking-widest text-steel-400 mb-2">
+                <span class="ko">수익 구조</span><span class="en">Revenue Structure</span>
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] text-steel-300"><span class="ko">설계 라이선스료</span><span class="en">Design License Fee</span></span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] text-steel-300"><span class="ko">검사장비 판매</span><span class="en">Inspection Equipment</span></span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] text-steel-300"><span class="ko">핵심기기 공급</span><span class="en">Core Components</span></span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] text-steel-300"><span class="ko">엔지니어링 서비스</span><span class="en">Engineering Services</span></span>
               </div>
             </div>
-            <!-- IP Commercialization -->
-            <div class="rounded-lg border border-slate-200 bg-white p-8">
-              <h4 class="text-xl font-bold text-ink-900 mb-3">IP Commercialization</h4>
-              <p class="text-sm text-steel-400 mb-5">검증된 SMR IP를 확보해 에너지 전주기 고객에게 제공합니다</p>
-              <ul class="flex flex-col gap-3">
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  검증된 설계 자산 확보 및 라이선싱
-                </li>
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  EPC 컨소시엄 참여
-                </li>
-                <li class="flex items-start gap-2.5 text-sm text-ink-800">
-                  <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                  글로벌 시장 전개
-                </li>
-              </ul>
-              <div class="mt-6 text-xs text-steel-400">
-                <span class="font-bold text-teal-500">고객:</span> 발전사, 설계사, 빅테크, 반도체사 등
-              </div>
+            <div class="mt-4 text-xs text-steel-400">
+              <span class="font-medium text-cyan-400"><span class="ko">고객:</span><span class="en">Client:</span></span>
+              <span class="ko"> SMR IP 개발 회사</span>
+              <span class="en"> SMR IP developers</span>
+            </div>
+          </div>
+          <!-- IP Commercialization -->
+          <div class="dark-card p-8">
+            <h4 class="text-xl font-normal text-white mb-3">IP Commercialization</h4>
+            <p class="text-sm text-steel-300 font-light mb-6">
+              <span class="ko">SMR 설계 IP를 확보해 에너지 전주기 고객에게 제공합니다</span>
+              <span class="en">Securing SMR design IP and delivering it to full energy lifecycle clients</span>
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">설계 자산 확보 및 라이선싱</span>
+                <span class="en">Design asset acquisition and licensing</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">EPC 컨소시엄 참여</span>
+                <span class="en">EPC consortium participation</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-steel-200 font-light">
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <span class="ko">글로벌 시장 전개</span>
+                <span class="en">Global market expansion</span>
+              </li>
+            </ul>
+            <div class="mt-6 text-xs text-steel-400">
+              <span class="font-medium text-cyan-400"><span class="ko">고객:</span><span class="en">Client:</span></span>
+              <span class="ko"> 발전사, 설계사, 빅테크, EPC 기업 등</span>
+              <span class="en"> Utilities, engineering firms, big tech, EPC companies</span>
             </div>
           </div>
         </div>
@@ -259,54 +467,74 @@
     </section>
 
     <!-- ═══════════════════ AI TEASER ═══════════════════ -->
-    <section class="relative overflow-hidden bg-ink-950 py-32 fade-in">
+    <section class="bg-ink-900 py-28 fade-in">
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <div class="flex items-center gap-3 mb-5">
-              <span class="h-px w-12 bg-teal-500"></span>
-              <span class="text-xs font-bold uppercase tracking-[0.2em] text-teal-500">Agentic AI for Nuclear</span>
-            </div>
-            <h3 class="text-3xl font-black text-white md:text-4xl tracking-tight mb-6">
-              인허가 문서 3,000건을<br>수분 내에 자동 분석합니다
+            <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Agentic AI for Nuclear</span>
+            <h3 class="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight mb-6 leading-tight">
+              <span class="ko">인허가 문서 작성을<br>AI로 자동화합니다</span>
+              <span class="en">Automating licensing<br>document drafting with AI</span>
             </h3>
-            <p class="text-lg text-steel-200 leading-relaxed mb-8">KAERI, KAIST와 공동 개발 중인 원자력 특화 Agentic AI가 설계·인허가 실무의 속도를 혁신합니다.</p>
+            <p class="text-base text-steel-300 font-light leading-relaxed mb-8">
+              <span class="ko">KAERI, KAIST와 공동 개발 중인 원자력 특화 Agentic AI가 설계·인허가 실무의 속도를 혁신합니다.</span>
+              <span class="en">Nuclear-specialized Agentic AI co-developed with KAERI and KAIST is revolutionizing the speed of design and licensing operations.</span>
+            </p>
             <div class="flex flex-col gap-4 mb-10">
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                <p class="text-sm text-steel-100">규제 요구사항-근거 자동 매핑</p>
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <p class="text-sm text-steel-200 font-light">
+                  <span class="ko">규제 요구사항-근거 자동 매핑</span>
+                  <span class="en">Automated regulatory requirement-evidence mapping</span>
+                </p>
               </div>
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                <p class="text-sm text-steel-100">수천 건 문서 수동 검토 → 수분 내 자동 검색</p>
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <p class="text-sm text-steel-200 font-light">
+                  <span class="ko">수천 건 문서 수동 검토 → 수분 내 자동 검색</span>
+                  <span class="en">Manual review of thousands of documents → automated search in minutes</span>
+                </p>
               </div>
               <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-teal-500 text-lg mt-0.5">check_circle</span>
-                <p class="text-sm text-steel-100">출처 인용 및 추적성 보장</p>
+                <span class="material-symbols-outlined text-cyan-400 text-lg mt-0.5">check_circle</span>
+                <p class="text-sm text-steel-200 font-light">
+                  <span class="ko">출처 인용 및 추적성 보장</span>
+                  <span class="en">Source citation and traceability guaranteed</span>
+                </p>
               </div>
             </div>
-            <a href="technology.html" class="inline-flex items-center gap-2 rounded-full border border-teal-500 px-7 py-3 text-xs font-bold uppercase tracking-widest text-teal-500 transition-colors hover:bg-teal-500 hover:text-white">
-              기술 상세 보기
+            <a href="technology.html" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-white transition-colors font-light">
+              <span class="ko">기술 상세 보기</span>
+              <span class="en">Technology details</span>
               <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </a>
           </div>
           <!-- Workflow -->
-          <div class="border border-white/10 rounded-lg p-8 lg:p-10">
+          <div class="dark-card p-8 lg:p-10">
             <div class="flex flex-col gap-6">
               <div class="border-b border-white/10 pb-6">
-                <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400 mb-2">Step 01</p>
-                <p class="text-lg font-bold text-white">Input</p>
-                <p class="text-sm text-steel-300 mt-1">인허가 질의 또는 설계 변경 사항</p>
+                <p class="text-[10px] font-medium uppercase tracking-widest text-steel-400 mb-2">Step 01</p>
+                <p class="text-lg font-normal text-white">Input</p>
+                <p class="text-sm text-steel-300 font-light mt-1">
+                  <span class="ko">인허가 질의 또는 설계 변경 사항</span>
+                  <span class="en">Licensing query or design change</span>
+                </p>
               </div>
               <div class="border-b border-white/10 pb-6">
-                <p class="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-2">Step 02</p>
-                <p class="text-lg font-bold text-white">Agent Action</p>
-                <p class="text-sm text-steel-300 mt-1">자동 검색 → 출처 인용 → 문서 초안 → 검토</p>
+                <p class="text-[10px] font-medium uppercase tracking-widest text-cyan-400 mb-2">Step 02</p>
+                <p class="text-lg font-normal text-white">Agent Action</p>
+                <p class="text-sm text-steel-300 font-light mt-1">
+                  <span class="ko">자동 검색 → 출처 인용 → 문서 초안 → 검토</span>
+                  <span class="en">Auto-search → Source citation → Draft → Review</span>
+                </p>
               </div>
               <div>
-                <p class="text-[10px] font-bold uppercase tracking-widest text-steel-400 mb-2">Step 03</p>
-                <p class="text-lg font-bold text-white">Output</p>
-                <p class="text-sm text-steel-300 mt-1">근거 기반 인허가 대응 문서</p>
+                <p class="text-[10px] font-medium uppercase tracking-widest text-steel-400 mb-2">Step 03</p>
+                <p class="text-lg font-normal text-white">Output</p>
+                <p class="text-sm text-steel-300 font-light mt-1">
+                  <span class="ko">근거 기반 인허가 대응 문서</span>
+                  <span class="en">Evidence-based licensing response document</span>
+                </p>
               </div>
             </div>
           </div>
@@ -314,35 +542,125 @@
       </div>
     </section>
 
+    <!-- ═══════════════════ LATEST NEWS (LinkedIn) ═══════════════════ -->
+    <section class="bg-ink-950 py-28 fade-in">
+      <div class="mx-auto max-w-site px-6 lg:px-10">
+        <div class="flex items-end justify-between mb-14">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-sm text-cyan-400">share</span>
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">LinkedIn</span>
+            </div>
+            <h3 class="text-4xl md:text-5xl font-extralight text-white tracking-tight">Latest News</h3>
+            <p class="mt-3 text-base text-steel-300 font-light">
+              <span class="ko">RX의 최신 소식과 활동을 확인하세요.</span>
+              <span class="en">Stay up to date with RX's latest activities and announcements.</span>
+            </p>
+          </div>
+          <div class="hidden md:flex items-center gap-3">
+            <button id="news-prev" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors">
+              <span class="material-symbols-outlined text-lg">chevron_left</span>
+            </button>
+            <button id="news-next" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors">
+              <span class="material-symbols-outlined text-lg">chevron_right</span>
+            </button>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+           <div id="news-track" class="news-track">
+            <!-- News 1: 머니투데이 -->
+            <div class="dark-card overflow-hidden flex-shrink-0 w-[calc(33.333%-16px)] min-w-[280px]">
+              <div class="relative h-48 bg-ink-800 overflow-hidden">
+                <img src="rx_images/news_mt.jpg" class="w-full h-full object-cover opacity-70" alt="원전 삼총사 좌담회" loading="lazy">
+                <span class="absolute top-3 right-3 bg-white/10 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full border border-white/20">머니투데이</span>
+              </div>
+              <div class="p-6">
+                <h4 class="text-sm font-normal text-white leading-snug mb-4">
+                  <span class="ko">창업가로 변신한 원전 삼총사...'제2의 원자력 르네상스' 연다</span>
+                  <span class="en">Nuclear Trio Turns Entrepreneurs — Opening a 'Second Nuclear Renaissance'</span>
+                </h4>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-steel-400">2026. 03. 11</p>
+                  <a href="https://www.mt.co.kr/tech/2026/03/11/2026030315043759084" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors">기사 보기 →</a>
+                </div>
+              </div>
+            </div>
+            <!-- News 2: 인사이트N파워 -->
+            <div class="dark-card overflow-hidden flex-shrink-0 w-[calc(33.333%-16px)] min-w-[280px]">
+              <div class="relative h-48 bg-ink-800 overflow-hidden">
+                <img src="rx_images/news_inp.jpg" class="w-full h-full object-cover opacity-70" alt="초격차 사업 유공 포상" loading="lazy">
+                <span class="absolute top-3 right-3 bg-white/10 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full border border-white/20">인사이트N파워</span>
+              </div>
+              <div class="p-6">
+                <h4 class="text-sm font-normal text-white leading-snug mb-4">
+                  <span class="ko">알엑스, '초격차 사업 유공' 중소벤처기업부 장관상 수상</span>
+                  <span class="en">RX Wins Minister's Award for Outstanding Deep Tech Startup</span>
+                </h4>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-steel-400">2026. 01. 29</p>
+                  <a href="https://www.inpnews.kr/news/articleView.html?idxno=6364" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors">기사 보기 →</a>
+                </div>
+              </div>
+            </div>
+            <!-- News 3: 플래텀 -->
+            <div class="dark-card overflow-hidden flex-shrink-0 w-[calc(33.333%-16px)] min-w-[280px]">
+              <div class="relative h-48 bg-ink-800 overflow-hidden">
+                <img src="rx_images/news_platum.png" class="w-full h-full object-cover opacity-70" alt="KAERI 코어기업 선정" loading="lazy">
+                <span class="absolute top-3 right-3 bg-white/10 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full border border-white/20">플래텀</span>
+              </div>
+              <div class="p-6">
+                <h4 class="text-sm font-normal text-white leading-snug mb-4">
+                  <span class="ko">블루포인트 투자 원자력 딥테크 3사, KAERI 코어기업 선정</span>
+                  <span class="en">Three Bluepoint-Backed Nuclear Deep Tech Firms Selected as KAERI Core Companies</span>
+                </h4>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-steel-400">2026. 01. 22</p>
+                  <a href="https://platum.kr/archives/280069" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors">기사 보기 →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Dots -->
+        <div class="flex items-center justify-center gap-2 mt-8">
+          <div data-dot class="w-2 h-2 rounded-full bg-white transition-colors"></div>
+          <div data-dot class="w-2 h-2 rounded-full bg-white/30 transition-colors"></div>
+          <div data-dot class="w-2 h-2 rounded-full bg-white/30 transition-colors"></div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer class="border-t border-white/10 bg-ink-950 py-12">
+  <footer class="border-t border-white/5 bg-ink-950 py-12">
     <div class="mx-auto max-w-site px-6 lg:px-10">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div class="md:col-span-1">
-          <img src="rx_logo/RX Logo_white.png" alt="RX Inc." class="h-7 w-auto mb-4 opacity-80">
-          <p class="text-xs text-steel-400 leading-relaxed">차세대 SMR 엔지니어링의 실행 파트너</p>
+          <img src="rx_images/logo_web.png" alt="RX Inc." class="h-7 w-auto mb-4 opacity-80">
+          <p class="text-xs text-steel-400 leading-relaxed font-light">
+            <span class="ko">차세대 SMR 엔지니어링의 실행 파트너</span>
+            <span class="en">Execution partner for next-generation SMR engineering</span>
+          </p>
         </div>
         <div>
-          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Services</h5>
+          <h5 class="text-xs font-medium uppercase tracking-[0.12em] text-steel-300 mb-3">Services</h5>
           <div class="flex flex-col gap-2">
-            <a href="capabilities.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Core Capabilities</a>
-            <a href="technology.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">AI Technology</a>
+            <a href="capabilities.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">Core Capabilities</a>
+            <a href="technology.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">AI Technology</a>
           </div>
         </div>
         <div>
-          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Company</h5>
+          <h5 class="text-xs font-medium uppercase tracking-[0.12em] text-steel-300 mb-3">Company</h5>
           <div class="flex flex-col gap-2">
-            <a href="about.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">About RX</a>
-            <a href="about.html#milestones" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Milestones</a>
-            <a href="about.html#partners" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors">Partners</a>
+            <a href="about.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">About RX</a>
+            <a href="about.html#milestones" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">Milestones</a>
+            <a href="about.html#partners" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">Partners</a>
           </div>
         </div>
         <div>
-          <h5 class="text-xs font-bold uppercase tracking-[0.12em] text-steel-300 mb-3">Contact</h5>
-          <div class="flex flex-col gap-2 text-sm text-steel-400">
+          <h5 class="text-xs font-medium uppercase tracking-[0.12em] text-steel-300 mb-3">Contact</h5>
+          <div class="flex flex-col gap-2 text-sm text-steel-400 font-light">
             <p>khlee@rx.energy</p>
             <p>+82 042-823-6616</p>
             <a href="https://rx.energy" class="hover:text-cyan-400 transition-colors">rx.energy</a>
@@ -356,5 +674,9 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="popup.js"></script>
+  <script src="news.js"></script>
 </body>
 </html>

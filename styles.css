@@ -1,11 +1,15 @@
 /* ═══════════════════════════════════════════════════════
-   RX Inc. — Shared Styles
+   RX Inc. — Shared Styles (Dark Theme)
    ═══════════════════════════════════════════════════════ */
 
 /* ── Base ─────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
-/* ── Scroll Animation ─────────────────────────────────── */
+/* ── Language Toggle ─────────────────────────────────── */
+body.lang-ko .en { display: none !important; }
+body.lang-en .ko { display: none !important; }
+
+/* ── Scroll Animation ────────────────────────────────── */
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -16,12 +20,18 @@ html { scroll-behavior: smooth; }
   transform: translateY(0);
 }
 
-/* ── Scrollbar ────────────────────────────────────────── */
+/* ── Scrollbar ───────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: #0b1623; }
-::-webkit-scrollbar-thumb { background: #156082; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
 
-/* ── Mobile Navigation Overlay ────────────────────────── */
+/* ── Nav Accent Line ─────────────────────────────────── */
+.nav-accent {
+  height: 2px;
+  background: linear-gradient(90deg, #27272a 0%, #52525b 50%, #27272a 100%);
+}
+
+/* ── Mobile Navigation Overlay ───────────────────────── */
 .mobile-nav {
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,12 +40,46 @@ html { scroll-behavior: smooth; }
   transform: translateX(0);
 }
 
-/* ── Page Header (subpages) ───────────────────────────── */
-.page-header {
-  background: linear-gradient(to bottom, #0b1623, #0e2841);
+/* ── Active Nav Link ─────────────────────────────────── */
+.nav-active {
+  color: #ffffff;
 }
 
-/* ── Active Nav Link ──────────────────────────────────── */
-.nav-active {
-  color: #3db8e8;
+/* ── Timeline ────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255,255,255,0.1);
+}
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  top: 6px;
+}
+
+/* ── News Carousel ───────────────────────────────────── */
+.news-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s ease;
+}
+
+/* ── Dark Card ───────────────────────────────────────── */
+.dark-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+/* ── Left Border Accent ──────────────────────────────── */
+.border-accent-left {
+  border-left: 2px solid #ffffff;
+  padding-left: 16px;
 }
