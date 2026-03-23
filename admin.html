@@ -317,7 +317,10 @@ function inputField(label, name, value = '', type = 'text', required = false) {
 function getFormData(form) {
   const data = {};
   form.querySelectorAll('input, textarea, select').forEach(el => {
+    if (!el.name || el.type === 'file') return; // skip unnamed & file inputs
     if (el.type === 'checkbox') data[el.name] = el.checked;
+    else if (el.type === 'number') data[el.name] = parseInt(el.value) || 0;
+    else if (el.type === 'date') data[el.name] = el.value || null;
     else data[el.name] = el.value;
   });
   return data;
