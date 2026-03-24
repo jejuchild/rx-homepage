@@ -28,6 +28,10 @@
     // Already dismissed today
     if (dismissedDate === today) return;
 
+    // Already closed this session
+    const sessionKey = `rx-popup-closed-${popup.id}`;
+    if (sessionStorage.getItem(sessionKey)) return;
+
     // Determine language
     const lang = localStorage.getItem('rx-lang') || 'en';
     const title = (lang === 'en' && popup.title_en) ? popup.title_en : popup.title_ko;
@@ -81,7 +85,7 @@
     document.body.appendChild(overlay);
 
     // Close handlers
-    const close = () => overlay.remove();
+    const close = () => { sessionStorage.setItem(sessionKey, '1'); overlay.remove(); };
     document.getElementById('rx-popup-close').addEventListener('click', close);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
 
