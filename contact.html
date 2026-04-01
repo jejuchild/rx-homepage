@@ -43,8 +43,8 @@
       <nav class="hidden md:flex items-center gap-8">
         <a href="index.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
-        <a href="capabilities.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Capabilities</a>
-        <a href="technology.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Technology</a>
+        <a href="reactor.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Reactor</a>
+        <a href="ax.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">AX</a>
         <a href="contact.html" class="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">Contact</a>
         <span class="text-white/20">|</span>
         <div class="flex items-center gap-1 text-xs">
@@ -78,8 +78,8 @@
     <nav class="flex flex-col gap-1 p-6">
       <a href="index.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Home</a>
       <a href="about.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">About</a>
-      <a href="capabilities.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Capabilities</a>
-      <a href="technology.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Technology</a>
+      <a href="reactor.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">Reactor</a>
+      <a href="ax.html" class="py-3 text-lg text-steel-200 hover:text-cyan-400 transition-colors border-b border-white/5">AX</a>
       <a href="contact.html" class="py-3 text-lg text-cyan-400">Contact</a>
     </nav>
   </div>
@@ -111,23 +111,24 @@
         </h3>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <!-- HQ Daejeon -->
-          <div class="dark-card overflow-hidden">
-            <div class="grid grid-cols-2 gap-px bg-white/10">
-              <div class="h-48 overflow-hidden col-span-2">
-                <img src="rx_images/office_daejeon.jpg" alt="RX Daejeon HQ Office" class="h-full w-full object-cover opacity-70">
+          <div class="dark-card border border-white/10" style="aspect-ratio: 1/1;">
+            <div class="h-full flex flex-col justify-between p-8">
+              <div>
+                <div class="flex items-center gap-3 mb-6">
+                  <span class="material-symbols-outlined text-cyan-400 text-3xl">location_on</span>
+                  <div>
+                    <h4 class="text-xl font-normal text-white">
+                      <span class="ko">본사 HQ</span>
+                      <span class="en">Headquarters</span>
+                    </h4>
+                    <span class="text-sm text-steel-300 font-light">Daejeon</span>
+                  </div>
+                </div>
+                <div class="h-px w-full bg-white/10 mb-6"></div>
               </div>
-            </div>
-            <div class="p-7">
-              <div class="flex items-center gap-3 mb-4">
-                <h4 class="text-lg font-normal text-white">
-                  <span class="ko">본사 HQ</span>
-                  <span class="en">Headquarters</span>
-                </h4>
-                <span class="bg-white/10 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full border border-white/20">Daejeon</span>
-              </div>
-              <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-4 flex-1">
                 <div class="flex items-start gap-3">
-                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
+                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">apartment</span>
                   <p class="text-sm text-steel-200 leading-relaxed font-light">
                     <span class="ko">대전광역시 유성구 유성대로877번길 70</span>
                     <span class="en">70 Yuseong-daero 877beon-gil, Yuseong-gu, Daejeon</span>
@@ -137,34 +138,36 @@
                   <span class="material-symbols-outlined text-steel-400 text-lg">call</span>
                   <p class="text-sm text-steel-200 font-light">042-823-6616</p>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-steel-400 text-lg">mail</span>
-                  <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-400 hover:underline font-light">khlee@rx.energy</a>
-                  <span class="text-steel-400 mx-1">/</span>
-                  <a href="mailto:andy@rx.energy" class="text-sm text-cyan-400 hover:underline font-light">andy@rx.energy</a>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">mail</span>
+                  <div class="flex flex-col gap-1">
+                    <a href="mailto:khlee@rx.energy" class="text-sm text-cyan-400 hover:underline font-light">khlee@rx.energy</a>
+                    <a href="mailto:andy@rx.energy" class="text-sm text-cyan-400 hover:underline font-light">andy@rx.energy</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Seoul Branch -->
-          <div class="dark-card overflow-hidden">
-            <div class="grid grid-cols-2 gap-px bg-white/10">
-              <div class="h-48 overflow-hidden col-span-2">
-                <img src="rx_images/office_seoul.jpg" alt="RX Seoul Branch Office" class="h-full w-full object-cover opacity-70">
+          <div class="dark-card border border-white/10" style="aspect-ratio: 1/1;">
+            <div class="h-full flex flex-col justify-between p-8">
+              <div>
+                <div class="flex items-center gap-3 mb-6">
+                  <span class="material-symbols-outlined text-cyan-400 text-3xl">location_on</span>
+                  <div>
+                    <h4 class="text-xl font-normal text-white">
+                      <span class="ko">서울지사</span>
+                      <span class="en">Seoul Branch</span>
+                    </h4>
+                    <span class="text-sm text-steel-300 font-light">Gangnam</span>
+                  </div>
+                </div>
+                <div class="h-px w-full bg-white/10 mb-6"></div>
               </div>
-            </div>
-            <div class="p-7">
-              <div class="flex items-center gap-3 mb-4">
-                <h4 class="text-lg font-normal text-white">
-                  <span class="ko">서울지사</span>
-                  <span class="en">Seoul Branch</span>
-                </h4>
-                <span class="bg-white/10 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full border border-white/20">Gangnam</span>
-              </div>
-              <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-4 flex-1">
                 <div class="flex items-start gap-3">
-                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">location_on</span>
+                  <span class="material-symbols-outlined text-steel-400 text-lg mt-0.5">apartment</span>
                   <p class="text-sm text-steel-200 leading-relaxed font-light">
                     <span class="ko">서울특별시 강남구 역삼로 MARU 180</span>
                     <span class="en">MARU 180, Yeoksam-ro, Gangnam-gu, Seoul</span>
@@ -239,8 +242,8 @@
         <div>
           <h5 class="text-xs font-medium uppercase tracking-[0.12em] text-steel-300 mb-3">Services</h5>
           <div class="flex flex-col gap-2">
-            <a href="capabilities.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">Core Capabilities</a>
-            <a href="technology.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">AI Technology</a>
+            <a href="reactor.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">Reactor</a>
+            <a href="ax.html" class="text-sm text-steel-400 hover:text-cyan-400 transition-colors font-light">AX</a>
           </div>
         </div>
         <div>
