@@ -1,0 +1,17 @@
+.vercel
+.DS_Store
+.claude/
+
+# Dev screenshots & references
+verify_*.png
+verify_*.jpeg
+admin-dashboard.png
+fnctech_*.png
+frontend-*.png
+rx_current_full.png
+rx_viewport.jpeg
+navis-preview.jpg
+pptx_screenshots/
+
+# Stock image backups
+rx_images/stock/
