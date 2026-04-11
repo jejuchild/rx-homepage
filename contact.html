@@ -8,6 +8,13 @@
   <meta property="og:title" content="Contact | RX Inc.">
   <meta property="og:description" content="Reach out for SMR engineering partnerships, licensing inquiries, and collaboration.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <meta property="og:url" content="https://rx.energy/contact">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | RX Inc.">
+  <meta name="twitter:description" content="Reach out for SMR engineering partnerships, licensing inquiries, and collaboration.">
+  <meta name="twitter:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <link rel="icon" type="image/png" href="rx_images/logo_web.png">
   <link rel="canonical" href="https://rx.energy/contact">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
@@ -33,6 +40,7 @@
   </script>
 </head>
 <body class="bg-ink-950 font-sans text-white antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-cyan-400 focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
@@ -40,7 +48,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
         <a href="index.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
         <a href="reactor.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Reactor</a>
@@ -59,7 +67,7 @@
           <span class="text-white/20">/</span>
           <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
         </div>
-        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" aria-label="Open navigation menu" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -68,10 +76,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
+  <div id="mobile-nav" aria-label="Mobile navigation" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4">
       <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
-      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" aria-label="Close navigation menu" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -84,7 +92,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="py-20 lg:py-28 relative overflow-hidden">
@@ -105,10 +113,10 @@
           <span class="h-px w-12 bg-teal-500"></span>
           <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Locations</span>
         </div>
-        <h3 class="text-4xl md:text-5xl font-extralight text-white tracking-tight mb-12">
+        <h2 class="text-4xl md:text-5xl font-extralight text-white tracking-tight mb-12">
           <span class="ko">오피스</span>
           <span class="en">Our Offices</span>
-        </h3>
+        </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <!-- HQ Daejeon -->
           <div class="dark-card border border-white/10" style="aspect-ratio: 1/1;">
@@ -187,10 +195,10 @@
           <!-- Left: Contact Info with border-accent-left -->
           <div>
             <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Get in Touch</span>
-            <h3 class="mt-4 text-4xl md:text-5xl font-extralight text-white tracking-tight mb-4">
+            <h2 class="mt-4 text-4xl md:text-5xl font-extralight text-white tracking-tight mb-4">
               <span class="ko">문의하기</span>
               <span class="en">Get in Touch</span>
-            </h3>
+            </h2>
 
 
             <div class="flex flex-col gap-6">
@@ -211,7 +219,7 @@
               </div>
               <div class="border-accent-left">
                 <p class="text-xs font-medium uppercase tracking-widest text-steel-400 mb-1">Web</p>
-                <a href="https://rx.energy" target="_blank" class="text-lg font-normal text-cyan-400 hover:underline">rx.energy</a>
+                <a href="https://rx.energy" target="_blank" rel="noopener noreferrer" class="text-lg font-normal text-cyan-400 hover:underline">rx.energy</a>
               </div>
             </div>
 
@@ -264,7 +272,7 @@
         </div>
       </div>
       <div class="mt-10 pt-6 border-t border-white/5 text-center">
-        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+        <p class="text-xs text-steel-400/60">&copy; 2026 RX Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

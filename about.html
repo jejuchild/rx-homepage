@@ -8,6 +8,13 @@
   <meta property="og:title" content="About | RX Inc.">
   <meta property="og:description" content="Our mission, leadership, and vision for the future of nuclear energy and SMR technology.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <meta property="og:url" content="https://rx.energy/about">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About | RX Inc.">
+  <meta name="twitter:description" content="Our mission, leadership, and vision for the future of nuclear energy and SMR technology.">
+  <meta name="twitter:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <link rel="icon" type="image/png" href="rx_images/logo_web.png">
   <link rel="canonical" href="https://rx.energy/about">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
@@ -74,6 +81,7 @@
   </style>
 </head>
 <body class="bg-ink-950 font-sans text-white antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-cyan-400 focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
@@ -81,7 +89,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
         <a href="index.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold nav-active transition-colors">About</a>
         <a href="reactor.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Reactor</a>
@@ -100,7 +108,7 @@
           <span class="text-white/20">/</span>
           <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
         </div>
-        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" aria-label="Open navigation menu" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -109,10 +117,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
+  <div id="mobile-nav" aria-label="Mobile navigation" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
       <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
-      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" aria-label="Close navigation menu" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -125,7 +133,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="py-20 lg:py-28 relative overflow-hidden">
@@ -152,17 +160,17 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <h3 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
+            <h2 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
               Fabless Company in<br>Nuclear Industry
-            </h3>
+            </h2>
             <div class="space-y-4 text-base text-steel-300 leading-relaxed font-light">
               <p>
                 <span class="ko">RX Inc.는 한국원자력연구원(KAERI) 출신 핵심 엔지니어들이 2023년 설립한 차세대 원전 엔지니어링 전문 기업입니다.</span>
                 <span class="en">RX Inc. is a next-generation nuclear engineering firm founded in 2023 by key engineers from the Korea Atomic Energy Research Institute (KAERI).</span>
               </p>
               <p>
-                <span class="ko">KAERI, 두산, 효성, 현대 등 원전 산업 핵심 기관 출신 인력들이 합류하여, SMR 설계·해석·시험·인허가 전 과정을 아우르는 기술력을 보유하고 있습니다. 영광 3,4호기 대형 원전부터 SMART, i-SMR까지의 설계·인허가 경험을 바탕으로 합니다.</span>
-                <span class="en">With team members from KAERI, Doosan, Hyosung, and Hyundai, we possess comprehensive expertise spanning the full scope of SMR design, analysis, testing, and licensing — built on design and licensing experience from the YGN 3&4 large-scale NPP through SMART and i-SMR.</span>
+                <span class="ko">기존 원전 EPC 출신 인력들이 합류하여, SMR 설계·해석·시험·인허가 전 과정을 아우르는 기술력을 보유하고 있습니다. 대형 원전부터 SMART, i-SMR까지의 설계·인허가 경험을 바탕으로 합니다.</span>
+                <span class="en">With team members from Conventional Nuclear EPC, we possess comprehensive expertise spanning the full scope of SMR design, analysis, testing, and licensing — built on design and licensing experience from the large-scale NPP through SMART and i-SMR.</span>
               </p>
               <p>
                 <span class="ko">반도체 산업의 엔비디아처럼 — <strong class="text-white">설계와 IP 라이선싱으로 가치를 만드는 원자력 팹리스</strong>가 RX의 비즈니스 모델입니다.</span>
@@ -189,10 +197,10 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="text-center mb-16">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Mission & Vision</span>
-          <h3 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
+          <h2 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
             <span class="ko">우리가 지향하는 방향</span>
             <span class="en">Our Direction</span>
-          </h3>
+          </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg text-steel-200 font-light">
             <span class="ko">원자력 설계·인허가 실무를 정확하게 가속하는 자동화 기술과 엔지니어링 역량을 추구합니다</span>
             <span class="en">We pursue automation technology and engineering capabilities that precisely accelerate nuclear design and licensing operations</span>
@@ -232,10 +240,10 @@
           <span class="h-px w-12 bg-teal-500"></span>
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Strategy</span>
         </div>
-        <h3 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-12">
+        <h2 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-12">
           <span class="ko">3개의 전략 축</span>
           <span class="en">Three Strategic Pillars</span>
-        </h3>
+        </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div class="border-t-2 border-cyan-400 pt-6">
             <p class="text-sm font-bold uppercase tracking-widest text-cyan-400 mb-3">01</p>
@@ -271,7 +279,7 @@
         <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <!-- Left: Description + Certifications -->
           <div>
-            <h3 class="text-5xl md:text-6xl font-extralight text-white tracking-tight">Our Journey</h3>
+            <h2 class="text-5xl md:text-6xl font-extralight text-white tracking-tight">Our Journey</h2>
             <p class="mt-6 text-base text-steel-300 font-light leading-relaxed">
               <span class="ko">KAERI가 키운 스타트업에서, 차세대 원자력 엔지니어링의 실행 파트너로.</span>
               <span class="en">From a KAERI-backed startup to an execution partner for next-generation nuclear engineering.</span>
@@ -437,10 +445,10 @@
     <!-- ═══════════════════ INVESTORS & PARTNERS (MARQUEE) ═══════════════════ -->
     <section class="bg-ink-950 py-28 fade-in" id="partners">
       <div class="mx-auto max-w-site px-6 lg:px-10 text-center mb-16">
-        <h3 class="text-4xl md:text-5xl font-extralight text-white tracking-tight">
+        <h2 class="text-4xl md:text-5xl font-extralight text-white tracking-tight">
           <span class="ko">국내 최고의 투자사 · 파트너사</span>
           <span class="en">Backed by Leading Investors &amp; Partners</span>
-        </h3>
+        </h2>
       </div>
 
       <!-- Investors marquee - scrolls LEFT -->
@@ -452,23 +460,21 @@
         <div class="overflow-hidden">
           <div class="marquee-track-left">
             <!-- Set 1 -->
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/kt_invest_p7blmg.jpg" alt="KT Investment" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/aventures_r9vsre.jpg" alt="aVentures" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/IPS_mpi1sj.jpg" alt="IPS" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/ckd_xmfzvd.jpg" alt="CKD" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/aventures_r9vsre.jpg" alt="Aventures" loading="lazy"></div>
             <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EB%B8%94%EB%A3%A8%ED%8F%AC%EC%9D%B8%ED%8A%B8_yc06pv.jpg" alt="Bluepoint" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EB%B2%A4%EC%B2%98%ED%88%AC%EC%9E%90_cpnmxz.jpg" alt="미래에셋벤처투자" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EC%BB%B4%ED%8D%BC%EB%8B%88_K_cs2h0o.jpg" alt="Company K" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EC%BA%90%ED%94%BC%ED%83%88_vg9art.jpg" alt="미래에셋캐피탈" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EB%B2%A4%EC%B2%98%ED%88%AC%EC%9E%90_cpnmxz.jpg" alt="Mirae Asset Venture" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EC%BB%B4%ED%8D%BC%EB%8B%88_K_cs2h0o.jpg" alt="Company K Partners" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EC%BA%90%ED%94%BC%ED%83%88_vg9art.jpg" alt="Mirae Asset Capital" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/ckd_xmfzvd.jpg" alt="CKD" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/kt_invest_p7blmg.jpg" alt="KT Investment" loading="lazy"></div>
             <!-- Set 2 (duplicate for seamless loop) -->
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/kt_invest_p7blmg.jpg" alt="KT Investment" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/aventures_r9vsre.jpg" alt="aVentures" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/IPS_mpi1sj.jpg" alt="IPS" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/ckd_xmfzvd.jpg" alt="CKD" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/aventures_r9vsre.jpg" alt="Aventures" loading="lazy"></div>
             <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EB%B8%94%EB%A3%A8%ED%8F%AC%EC%9D%B8%ED%8A%B8_yc06pv.jpg" alt="Bluepoint" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EB%B2%A4%EC%B2%98%ED%88%AC%EC%9E%90_cpnmxz.jpg" alt="미래에셋벤처투자" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EC%BB%B4%ED%8D%BC%EB%8B%88_K_cs2h0o.jpg" alt="Company K" loading="lazy"></div>
-            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EC%BA%90%ED%94%BC%ED%83%88_vg9art.jpg" alt="미래에셋캐피탈" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EB%B2%A4%EC%B2%98%ED%88%AC%EC%9E%90_cpnmxz.jpg" alt="Mirae Asset Venture" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/%EC%BB%B4%ED%8D%BC%EB%8B%88_K_cs2h0o.jpg" alt="Company K Partners" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126311/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B_%EC%BA%90%ED%94%BC%ED%83%88_vg9art.jpg" alt="Mirae Asset Capital" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/ckd_xmfzvd.jpg" alt="CKD" loading="lazy"></div>
+            <div class="marquee-card"><img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1773126312/kt_invest_p7blmg.jpg" alt="KT Investment" loading="lazy"></div>
           </div>
         </div>
       </div>
@@ -552,7 +558,7 @@
         </div>
       </div>
       <div class="mt-10 pt-6 border-t border-white/5 text-center">
-        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+        <p class="text-xs text-steel-400/60">&copy; 2026 RX Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

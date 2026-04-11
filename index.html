@@ -8,7 +8,13 @@
   <meta property="og:title" content="RX Inc. | SMR Engineering Partner">
   <meta property="og:description" content="Next-generation nuclear engineering — SMR design, licensing, and AI-powered plant solutions.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="rx_images/rx_hero.jpg">
+  <meta property="og:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <meta property="og:url" content="https://rx.energy/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RX Inc. | SMR Engineering Partner">
+  <meta name="twitter:description" content="Next-generation nuclear engineering — SMR design, licensing, and AI-powered plant solutions.">
+  <meta name="twitter:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <link rel="icon" type="image/png" href="rx_images/logo_web.png">
   <link rel="canonical" href="https://rx.energy/">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
@@ -36,6 +42,7 @@
   </script>
 </head>
 <body class="bg-ink-950 font-sans text-white antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-cyan-400 focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
@@ -43,7 +50,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
         <a href="index.html" class="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
         <a href="reactor.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Reactor</a>
@@ -62,7 +69,7 @@
           <span class="text-white/20">/</span>
           <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
         </div>
-        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" aria-label="Open navigation menu" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -71,10 +78,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
+  <div id="mobile-nav" aria-label="Mobile navigation" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4">
       <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
-      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" aria-label="Close navigation menu" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -87,7 +94,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
     <section class="relative overflow-hidden bg-ink-950 py-12 lg:py-20">
@@ -124,10 +131,10 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="mb-14">
           <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">About RX</span>
-          <h3 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
+          <h2 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
             <span class="ko">SMR 설계부터 인허가까지,<br>원자력 엔지니어링의 새로운 기준</span>
             <span class="en">From SMR Design to Licensing,<br>A New Standard in Nuclear Engineering</span>
-          </h3>
+          </h2>
           <p class="mt-5 text-base text-steel-300 font-light max-w-2xl">
             <span class="ko">RX는 KAERI가 직접 설립한 유일한 SMR 스타트업으로, 원자력 설계·해석·시험·인허가 전 과정의 원천기술을 보유한 팹리스(Fabless) 기업입니다.</span>
             <span class="en">RX is the only SMR startup directly founded by KAERI, a fabless company with core technologies spanning the entire nuclear design, analysis, testing, and licensing process.</span>
@@ -138,15 +145,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 lg:items-center">
           <!-- Left: Large hero image -->
           <div class="relative overflow-hidden rounded-lg h-[400px]">
-            <img src="rx_images/construction_site.jpg" alt="SMR Project" class="w-full h-full object-cover opacity-80" loading="lazy">
+            <img src="rx_images/smr_design.png" alt="SMR Design" class="w-full h-full object-cover opacity-80" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent"></div>
           </div>
           <!-- Right: Text-driven descriptions -->
           <div class="space-y-8">
             <div>
               <h4 class="text-xl font-normal text-white mb-3">
-                <span class="ko">KAERI가 직접 설립한 유일한 SMR 스타트업</span>
-                <span class="en">The Only SMR Startup Founded by KAERI</span>
+                <span class="ko">KAERI가 설립한 SMR 스타트업</span>
+                <span class="en">The SMR Startup Founded by KAERI</span>
               </h4>
               <p class="text-base text-steel-300 font-light leading-relaxed">
                 <span class="ko">2023년 설립. 한국원자력연구원(KAERI) 핵심 엔지니어들이 만든 기업으로, SMART 원자로 설계·인허가의 핵심 경험을 그대로 이어갑니다.</span>
@@ -155,22 +162,22 @@
             </div>
             <div>
               <h4 class="text-xl font-normal text-white mb-3">
-                <span class="ko">SMR 설계·해석·시험·인허가 풀사이클</span>
+                <span class="ko">SMR 엔지니어링 풀사이클</span>
                 <span class="en">Full-Cycle SMR Engineering</span>
               </h4>
               <p class="text-base text-steel-300 font-light leading-relaxed">
-                <span class="ko">원자로 1차 계통(NSSS) 설계부터 안전해석, 시험, 인허가 문서까지 — 제조 없이 설계와 IP로 가치를 만드는 원자력 팹리스 모델입니다.</span>
-                <span class="en">From NSSS design to safety analysis, testing, and licensing documentation — a nuclear fabless model creating value through design and IP, without manufacturing.</span>
+                <span class="ko">NSSS 설계, 시험, 인허가까지 — 설계와 IP로 가치를 만드는 원자력 팹리스 모델입니다.</span>
+                <span class="en">From NSSS design, testing, and licensing — a nuclear fabless model creating value through design and IP.</span>
               </p>
             </div>
             <div>
               <h4 class="text-xl font-normal text-white mb-3">
-                <span class="ko">AI 기반 인허가 자동화</span>
-                <span class="en">AI-Powered Licensing Automation</span>
+                <span class="ko">AI 기반 설계·인허가</span>
+                <span class="en">AI-Powered Design and Licensing</span>
               </h4>
               <p class="text-base text-steel-300 font-light leading-relaxed">
-                <span class="ko">KAERI·KAIST와 공동 개발 중인 원자력 특화 Agentic AI로 인허가 문서 준비 업무를 혁신합니다.</span>
-                <span class="en">Transforming licensing document preparation with nuclear-specialized Agentic AI, co-developed with KAERI and KAIST.</span>
+                <span class="ko">원자력 특화 Agentic AI로 설계 및 인허가 문서 준비 업무를 혁신합니다.</span>
+                <span class="en">Transforming design and licensing document preparation with nuclear-specialized Agentic AI.</span>
               </p>
             </div>
           </div>
@@ -180,7 +187,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="dark-card overflow-hidden">
             <div class="h-32 overflow-hidden">
-              <img src="rx_images/datacenter.jpg" alt="Data Center" class="w-full h-full object-cover opacity-60" loading="lazy">
+              <img src="rx_images/datacenter.png" alt="Data Center" class="w-full h-full object-cover opacity-60" loading="lazy">
             </div>
             <div class="p-6">
               <p class="text-3xl font-light text-white/20 mb-3">01</p>
@@ -234,10 +241,10 @@
           <!-- Left: Text content (Linear style) -->
           <div>
             <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Reactor</span>
-            <h3 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
+            <h2 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
               <span class="ko">SMR 설계 · 해석<br>시험 · 인허가</span>
               <span class="en">SMR Design · Analysis<br>Testing · Licensing</span>
-            </h3>
+            </h2>
             <p class="mt-6 text-base text-steel-300 font-light leading-relaxed max-w-md">
               <span class="ko">원자로 핵심 기기 설계부터 인허가 문서 패키징까지, SMR 1차 계통의 전 과정을 수행합니다.</span>
               <span class="en">From reactor core component design to licensing document packaging — full-spectrum SMR primary system engineering.</span>
@@ -270,7 +277,7 @@
           </div>
           <!-- Right: Image -->
           <div class="relative overflow-hidden rounded-lg">
-            <img src="https://res.cloudinary.com/dsuh3djbp/image/upload/v1775032245/Image_56sghs56sghs56sg_ua0e28.png" alt="RX Reactor Technology" class="w-full h-[400px] lg:h-[520px] object-cover rounded-lg" loading="lazy">
+            <img src="rx_images/reactor.png" alt="RX Reactor Technology" class="w-full h-[400px] lg:h-[520px] object-cover rounded-lg" loading="lazy">
           </div>
         </div>
       </div>
@@ -287,10 +294,10 @@
           <!-- Right: Text content -->
           <div>
             <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Agentic AI for Nuclear</span>
-            <h3 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
-              <span class="ko">인허가 문서 작성을<br>AI로 자동화합니다</span>
-              <span class="en">Automating licensing<br>document drafting with AI</span>
-            </h3>
+            <h2 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
+              <span class="ko">AI로 가속화하는<br>인허가 문서 작성</span>
+              <span class="en">AI-Accelerated licensing<br>document drafting</span>
+            </h2>
             <p class="mt-6 text-base text-steel-300 font-light leading-relaxed max-w-md">
               <span class="ko">KAERI, KAIST와 공동 개발 중인 원자력 특화 Agentic AI가 설계·인허가 실무의 속도를 혁신합니다.</span>
               <span class="en">Nuclear-specialized Agentic AI co-developed with KAERI and KAIST is revolutionizing the speed of design and licensing operations.</span>
@@ -335,7 +342,7 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="flex items-end justify-between mb-14">
           <div>
-            <h3 class="text-4xl md:text-5xl font-extralight text-white tracking-tight">Latest News</h3>
+            <h2 class="text-4xl md:text-5xl font-extralight text-white tracking-tight">Latest News</h2>
             <p class="mt-3 text-base text-steel-300 font-light">
               <span class="ko">RX의 최신 소식과 활동을 확인하세요.</span>
               <span class="en">Stay up to date with RX's latest activities and announcements.</span>
@@ -365,7 +372,7 @@
                 </h4>
                 <div class="flex items-center justify-between">
                   <p class="text-xs text-steel-400">2026. 03. 11</p>
-                  <a href="https://www.mt.co.kr/tech/2026/03/11/2026030315043759084" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
+                  <a href="https://www.mt.co.kr/tech/2026/03/11/2026030315043759084" target="_blank" rel="noopener noreferrer" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
                 </div>
               </div>
             </div>
@@ -382,7 +389,7 @@
                 </h4>
                 <div class="flex items-center justify-between">
                   <p class="text-xs text-steel-400">2026. 01. 29</p>
-                  <a href="https://www.inpnews.kr/news/articleView.html?idxno=6364" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
+                  <a href="https://www.inpnews.kr/news/articleView.html?idxno=6364" target="_blank" rel="noopener noreferrer" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
                 </div>
               </div>
             </div>
@@ -399,7 +406,7 @@
                 </h4>
                 <div class="flex items-center justify-between">
                   <p class="text-xs text-steel-400">2026. 01. 22</p>
-                  <a href="https://platum.kr/archives/280069" target="_blank" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
+                  <a href="https://platum.kr/archives/280069" target="_blank" rel="noopener noreferrer" class="text-xs text-steel-300 hover:text-cyan-400 transition-colors"><span class="ko">기사 보기 →</span><span class="en">Read →</span></a>
                 </div>
               </div>
             </div>
@@ -452,7 +459,7 @@
         </div>
       </div>
       <div class="mt-10 pt-6 border-t border-white/5 text-center">
-        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+        <p class="text-xs text-steel-400/60">&copy; 2026 RX Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

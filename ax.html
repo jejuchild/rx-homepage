@@ -8,7 +8,14 @@
   <meta property="og:title" content="AX | RX Inc.">
   <meta property="og:description" content="AI-powered nuclear plant control systems, digital twin simulation, and advanced engineering platforms.">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://rx.energy/technology">
+  <meta property="og:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <meta property="og:url" content="https://rx.energy/ax">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AX | RX Inc.">
+  <meta name="twitter:description" content="AI-powered nuclear plant control systems, digital twin simulation, and advanced engineering platforms.">
+  <meta name="twitter:image" content="https://rx.energy/rx_images/rx_hero.jpg">
+  <link rel="icon" type="image/png" href="rx_images/logo_web.png">
+  <link rel="canonical" href="https://rx.energy/ax">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
@@ -33,6 +40,7 @@
   </script>
 </head>
 <body class="bg-ink-950 font-sans text-white antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-cyan-400 focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-950">
@@ -40,7 +48,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-8">
+      <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
         <a href="index.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Home</a>
         <a href="about.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">About</a>
         <a href="reactor.html" class="text-sm font-semibold text-steel-200 hover:text-cyan-400 transition-colors">Reactor</a>
@@ -59,7 +67,7 @@
           <span class="text-white/20">/</span>
           <button data-lang-toggle="ko" class="px-1.5 py-0.5 transition-colors cursor-pointer">KR</button>
         </div>
-        <button type="button" id="menu-toggle" class="md:hidden text-steel-200 hover:text-white">
+        <button type="button" id="menu-toggle" aria-label="Open navigation menu" class="md:hidden text-steel-200 hover:text-white">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
       </div>
@@ -68,10 +76,10 @@
   </header>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
+  <div id="mobile-nav" aria-label="Mobile navigation" class="mobile-nav fixed inset-0 z-[60] bg-ink-950 flex flex-col">
     <div class="flex items-center justify-between px-6 py-4">
       <img src="rx_images/logo_web.png" alt="RX Inc." class="h-8 w-auto">
-      <button type="button" id="close-nav" class="text-steel-200 hover:text-white">
+      <button type="button" id="close-nav" aria-label="Close navigation menu" class="text-steel-200 hover:text-white">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
     </div>
@@ -84,7 +92,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
     <section class="py-20 lg:py-28 relative overflow-hidden">
@@ -112,16 +120,16 @@
               <span class="h-px w-12 bg-teal-500"></span>
               <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">AI-Powered Engineering</span>
             </div>
-            <h3 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
+            <h2 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
               Nuclear Licensing<br>at the <span class="text-cyan-400">Speed of AI</span>
-            </h3>
+            </h2>
             <p class="text-lg text-steel-300 leading-relaxed mb-4 font-light">
-              <span class="ko">RX는 KAERI · KAIST와 공동으로 원자력 특화 Agentic AI를 개발하고 있습니다. 복잡한 원자로 설계·인허가 과정에서 AI가 즉각적인 질의응답을 제공하여 업무 속도를 혁신합니다.</span>
-              <span class="en">RX is co-developing nuclear-specialized Agentic AI with KAERI and KAIST. Our AI delivers instant Q&amp;A throughout the complex reactor design and licensing process, transforming the pace of operations.</span>
+              <span class="ko">RX는 원자력 특화 Agentic AI를 개발하고 있습니다. 복잡한 원자로 설계·인허가 과정에서 AI가 즉각적인 질의응답을 제공하여 업무 속도를 혁신합니다.</span>
+              <span class="en">RX is developing nuclear-specialized Agentic AI. Our AI delivers instant Q&amp;A throughout the complex reactor design and licensing process, transforming the pace of operations.</span>
             </p>
             <p class="text-lg text-steel-300 leading-relaxed font-light">
-              <span class="ko">단순 키워드 검색이 아닌, 2.2만 건의 원자력 문서를 기반으로 규제 요구사항에 대한 정확한 답변과 명확한 근거를 함께 제시합니다.</span>
-              <span class="en">Beyond simple keyword search — delivering precise answers to regulatory questions with clear, traceable citations drawn from 22,000+ nuclear documents.</span>
+              <span class="ko">단순 키워드 검색이 아닌, 2만 건 이상의 원자력 문서를 기반으로 규제 요구사항에 대한 정확한 답변과 명확한 근거를 함께 제시합니다.</span>
+              <span class="en">Beyond simple keyword search — delivering precise answers to regulatory questions with clear, traceable citations drawn from 20K+ nuclear documents.</span>
             </p>
           </div>
           <div class="space-y-6">
@@ -132,18 +140,18 @@
             <div class="space-y-5">
               <div>
                 <h4 class="text-lg font-normal text-white mb-2">
-                  <span class="ko">KAERI · KAIST 공동 개발</span>
-                  <span class="en">Co-developed with KAERI & KAIST</span>
+                  <span class="ko">원자력 엔지니어가 직접 개발</span>
+                  <span class="en">Built by Nuclear Engineers</span>
                 </h4>
                 <p class="text-sm text-steel-300 font-light leading-relaxed">
-                  <span class="ko">국내 최고 원자력 연구기관과 AI 연구기관이 함께 만드는 도메인 특화 AI입니다.</span>
-                  <span class="en">Domain-specialized AI built jointly with Korea's leading nuclear and AI research institutions.</span>
+                  <span class="ko">원자로 설계·인허가 엔지니어들이 직접 설계하고 학습시킨 AI — 원자력 데이터 위에 일반 AI를 올린 모델이 아닙니다.</span>
+                  <span class="en">Designed and trained by reactor design and licensing engineers — not generic AI wrapped around nuclear data.</span>
                 </p>
               </div>
               <div>
                 <h4 class="text-lg font-normal text-white mb-2">
-                  <span class="ko">22,000건 이상의 원자력 문서 학습</span>
-                  <span class="en">Trained on 22,000+ Nuclear Documents</span>
+                  <span class="ko">20,000건 이상의 원자력 문서 학습</span>
+                  <span class="en">Trained on 20K+ Nuclear Documents</span>
                 </h4>
                 <p class="text-sm text-steel-300 font-light leading-relaxed">
                   <span class="ko">온프레미스 전용 환경에서 운영되며, 원자력 온톨로지 기반 도메인 특화 추론을 수행합니다.</span>
@@ -167,7 +175,7 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="text-center mb-16">
           <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Transformation</span>
-          <h3 class="mt-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl tracking-tight">AS-IS <span class="text-cyan-400">→</span> TO-BE</h3>
+          <h2 class="mt-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl tracking-tight">AS-IS <span class="text-cyan-400">→</span> TO-BE</h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg text-steel-200 font-light">
             <span class="ko">Agentic AI가 바꾸는 인허가 업무의 패러다임</span>
             <span class="en">The paradigm shift in licensing operations driven by Agentic AI</span>
@@ -355,10 +363,10 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="text-center mb-16">
           <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Agent Workflow</span>
-          <h3 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
+          <h2 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
             <span class="ko">에이전트 작동 흐름</span>
             <span class="en">Agent Workflow</span>
-          </h3>
+          </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg text-steel-200 font-light">
             <span class="ko">입력에서 출력까지, 자동화된 인허가 문서 처리 파이프라인</span>
             <span class="en">Automated licensing document processing pipeline from input to output</span>
@@ -418,10 +426,10 @@
       <div class="mx-auto max-w-site px-6 lg:px-10">
         <div class="text-center mb-16">
           <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Applications</span>
-          <h3 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
+          <h2 class="mt-4 text-3xl font-extralight text-white md:text-4xl tracking-tight">
             <span class="ko">적용 분야</span>
             <span class="en">Application Areas</span>
-          </h3>
+          </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg text-steel-200 font-light">
             <span class="ko">원자력 밸류체인 전반에 걸친 AI 자동화</span>
             <span class="en">AI automation across the entire nuclear value chain</span>
@@ -532,10 +540,10 @@
         </div>
         <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <h3 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
+            <h2 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-6">
               <span class="ko">온프레미스 AI<br>Licensing Assistant</span>
               <span class="en">On-Premise AI<br>Licensing Assistant</span>
-            </h3>
+            </h2>
             <p class="text-base text-steel-300 font-light leading-relaxed mb-6">
               <span class="ko">상용 AI 서비스(ChatGPT 등)는 보안과 규제 준수 이슈로 원전 설계·인허가 업무에 직접 활용하기 어렵습니다. RX는 원자력 도메인에 특화된 보안 아키텍처를 제공합니다.</span>
               <span class="en">Commercial AI services (ChatGPT, etc.) face security and compliance challenges for nuclear design and licensing. RX provides a security architecture specialized for the nuclear domain.</span>
@@ -563,55 +571,6 @@
                 <p class="text-xs text-steel-400 mt-1"><span class="ko">인허가 관련 기술 자료가 외부로 전송되지 않도록 설계 / 로그·접근 통제 기능 제공</span><span class="en">Designed to prevent external transmission of licensing data / Log & access control capabilities</span></p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════ CO-DEVELOPMENT ═══════════════════ -->
-    <section class="bg-ink-900 py-24 fade-in">
-      <div class="mx-auto max-w-site px-6 lg:px-10">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="h-px w-12 bg-teal-500"></span>
-          <span class="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">Co-Development</span>
-        </div>
-        <h3 class="text-3xl font-extralight text-white md:text-4xl tracking-tight mb-12">
-          <span class="ko">공동 개발 파트너</span>
-          <span class="en">Co-Development Partners</span>
-        </h3>
-        <div class="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
-          <div class="bg-ink-900 p-8 text-center">
-            <h4 class="text-xl font-normal text-white mb-2">KAERI</h4>
-            <p class="text-xs text-steel-400">
-              <span class="ko">한국원자력연구원</span>
-              <span class="en">Korea Atomic Energy Research Institute</span>
-            </p>
-            <p class="mt-4 text-sm text-steel-300 leading-relaxed font-light">
-              <span class="ko">AI 에이전트 개발 및 원자력 도메인 지식 검증</span>
-              <span class="en">AI agent development and nuclear domain knowledge validation</span>
-            </p>
-          </div>
-          <div class="bg-ink-900 p-8 text-center">
-            <h4 class="text-xl font-normal text-white mb-2">KAIST</h4>
-            <p class="text-xs text-steel-400">
-              <span class="ko">한국과학기술원</span>
-              <span class="en">Korea Advanced Institute of Science and Technology</span>
-            </p>
-            <p class="mt-4 text-sm text-steel-300 leading-relaxed font-light">
-              <span class="ko">AI/ML 핵심 알고리즘 및 자연어 처리 기술 공동 개발</span>
-              <span class="en">Joint development of core AI/ML algorithms and NLP technologies</span>
-            </p>
-          </div>
-          <div class="bg-ink-900 p-8 text-center">
-            <h4 class="text-xl font-normal text-white mb-2">
-              <span class="ko">산업 파트너</span>
-              <span class="en">Industry Partners</span>
-            </h4>
-            <p class="text-xs text-steel-400">Industry Partners</p>
-            <p class="mt-4 text-sm text-steel-300 leading-relaxed font-light">
-              <span class="ko">원전 운영사, 제조사와의 실무 검증 및 현장 적용</span>
-              <span class="en">Field verification and on-site application with nuclear operators and manufacturers</span>
-            </p>
           </div>
         </div>
       </div>
@@ -655,7 +614,7 @@
         </div>
       </div>
       <div class="mt-10 pt-6 border-t border-white/5 text-center">
-        <p class="text-xs text-steel-400/60">&copy; 2025 RX Inc. All rights reserved.</p>
+        <p class="text-xs text-steel-400/60">&copy; 2026 RX Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>
