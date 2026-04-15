@@ -1,27 +1,17 @@
 /* ═══════════════════════════════════════════════════════
    RX Inc. — Popup Display Logic
-   Fetches active popups from Supabase.
-   Requires: supabase-config.js loaded before this file.
+   Fetches the currently active popup from the local API.
    ═══════════════════════════════════════════════════════ */
 
 (async function () {
-  if (typeof _supabase === 'undefined') return;
-
   try {
     const today = new Date().toISOString().split('T')[0];
 
-    const { data: popups } = await _supabase
-      .from('popups')
-      .select('*')
-      .eq('is_active', true)
-      .or(`start_date.is.null,start_date.lte.${today}`)
-      .or(`end_date.is.null,end_date.gte.${today}`)
-      .order('created_at', { ascending: false })
-      .limit(1);
+    const resp = await fetch('/api/popups/active');
+    if (!resp.ok) return;
+    const { data: popup } = await resp.json();
 
-    if (!popups || popups.length === 0) return;
-
-    const popup = popups[0];
+    if (!popup) return;
     const dismissKey = `rx-popup-dismiss-${popup.id}`;
     const dismissedDate = localStorage.getItem(dismissKey);
 

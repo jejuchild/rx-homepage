@@ -2,6 +2,16 @@
 .DS_Store
 .claude/
 
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Runtime data
+data/
+uploads/
+
 # Dev screenshots & references
 verify_*.png
 verify_*.jpeg
@@ -14,4 +24,4 @@ navis-preview.jpg
 pptx_screenshots/
 
 # Stock image backups
-rx_images/stock/
+public/rx_images/stock/

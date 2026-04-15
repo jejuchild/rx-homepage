@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -111,10 +110,24 @@
 <script>
 /* ═══════════════════════════════════════════════════════
    RX Admin Dashboard
+   Talks to the local Express API (see /server).
    ═══════════════════════════════════════════════════════ */
-const SUPABASE_URL = 'https://sipmsyhmkgiyrphcvhch.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpcG1zeWhta2dpeXJwaGN2aGNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTUzMjcsImV4cCI6MjA4NzMzMTMyN30.8ACbUrfS-kXXSauCN-9Qt_hLXIbvSQZlBdRHDId3dBQ';
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function api(method, path, body) {
+  const opts = { method, credentials: 'same-origin', headers: {} };
+  if (body !== undefined) {
+    opts.headers['Content-Type'] = 'application/json';
+    opts.body = JSON.stringify(body);
+  }
+  const resp = await fetch(path, opts);
+  if (resp.status === 401) {
+    location.reload();
+    throw new Error('Unauthorized');
+  }
+  const data = await resp.json().catch(() => ({}));
+  if (!resp.ok) throw new Error(data.error || `HTTP ${resp.status}`);
+  return data;
+}
 
 /* ── DOM refs ──────────────────────────────────────── */
 const $login     = document.getElementById('login-screen');
@@ -130,8 +143,12 @@ let currentTab = 'news';
 
 /* ── Auth ──────────────────────────────────────────── */
 async function initAuth() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session) showAdmin(session.user);
+  try {
+    const { user } = await api('GET', '/api/auth/me');
+    if (user) showAdmin(user);
+  } catch (err) {
+    // not logged in
+  }
 }
 
 $loginForm.addEventListener('submit', async (e) => {
@@ -140,17 +157,17 @@ $loginForm.addEventListener('submit', async (e) => {
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
 
-  const { data, error } = await sb.auth.signInWithPassword({ email, password });
-  if (error) {
-    $loginErr.textContent = error.message;
+  try {
+    const { user } = await api('POST', '/api/auth/login', { email, password });
+    showAdmin(user);
+  } catch (err) {
+    $loginErr.textContent = err.message;
     $loginErr.classList.remove('hidden');
-    return;
   }
-  showAdmin(data.user);
 });
 
 document.getElementById('logout-btn').addEventListener('click', async () => {
-  await sb.auth.signOut();
+  try { await api('POST', '/api/auth/logout'); } catch (_) {}
   location.reload();
 });
 
@@ -214,7 +231,9 @@ function openModal(title, fieldsHTML, onSubmit) {
       fetchBtn.textContent = 'Fetching...';
       fetchBtn.disabled = true;
       try {
-        const resp = await fetch(`/api/og-image?url=${encodeURIComponent(linkInput.value)}`);
+        const resp = await fetch(`/api/og-image?url=${encodeURIComponent(linkInput.value)}`, {
+          credentials: 'same-origin',
+        });
         const data = await resp.json();
         if (data.image) {
           imgInput.value = data.image;
@@ -232,8 +251,8 @@ function openModal(title, fieldsHTML, onSubmit) {
   }
 
   // Hook up file upload buttons
-  $modalForm.querySelectorAll('[data-upload]').forEach(fileInput => {
-    fileInput.addEventListener('change', async (e) => {
+  $modalForm.querySelectorAll('[data-upload]').forEach((fileInput) => {
+    const handler = async (e) => {
       const file = e.target.files[0];
       if (!file) return;
 
@@ -245,19 +264,18 @@ function openModal(title, fieldsHTML, onSubmit) {
       label.innerHTML = '<span class="text-xs text-steel-300">Uploading...</span>';
 
       try {
-        const ext = file.name.split('.').pop();
-        const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`;
-        const filePath = `uploads/${fileName}`;
+        const fd = new FormData();
+        fd.append('file', file);
+        const resp = await fetch('/api/admin/upload', {
+          method: 'POST',
+          credentials: 'same-origin',
+          body: fd,
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || 'Upload failed');
 
-        const { error: uploadError } = await sb.storage
-          .from('images')
-          .upload(filePath, file, { cacheControl: '31536000', upsert: false });
-
-        if (uploadError) throw uploadError;
-
-        const { data: urlData } = sb.storage.from('images').getPublicUrl(filePath);
-        targetInput.value = urlData.publicUrl;
-        showImagePreview(urlData.publicUrl);
+        targetInput.value = data.url;
+        showImagePreview(data.url);
         toast('Image uploaded');
       } catch (err) {
         toast(err.message || 'Upload failed', 'error');
@@ -265,8 +283,10 @@ function openModal(title, fieldsHTML, onSubmit) {
 
       label.innerHTML = origHTML;
       // Re-attach listener since innerHTML was replaced
-      label.querySelector('[data-upload]')?.addEventListener('change', arguments.callee);
-    });
+      const newInput = label.querySelector('[data-upload]');
+      if (newInput) newInput.addEventListener('change', handler);
+    };
+    fileInput.addEventListener('change', handler);
   });
 }
 
@@ -330,8 +350,9 @@ function getFormData(form) {
    NEWS CRUD
    ═══════════════════════════════════════════════════════ */
 async function loadNews() {
-  const { data, error } = await sb.from('news').select('*').order('date', { ascending: false }).order('sort_order');
-  if (error) { toast(error.message, 'error'); return; }
+  let data;
+  try { ({ data } = await api('GET', '/api/admin/news')); }
+  catch (err) { toast(err.message, 'error'); return; }
 
   document.getElementById('news-list').innerHTML = data.length === 0
     ? '<p class="text-steel-400 text-sm">No news yet.</p>'
@@ -404,44 +425,45 @@ document.getElementById('add-news-btn').addEventListener('click', () => {
   openModal('Add News', newsFormHTML(), async () => {
     const d = getFormData($modalForm);
     d.sort_order = parseInt(d.sort_order) || 0;
-    const { error } = await sb.from('news').insert(d);
-    if (error) toast(error.message, 'error');
-    else { toast('News added'); loadNews(); }
+    try { await api('POST', '/api/admin/news', d); toast('News added'); loadNews(); }
+    catch (err) { toast(err.message, 'error'); }
   });
 });
 
 window.editNews = async (id) => {
-  const { data } = await sb.from('news').select('*').eq('id', id).single();
+  let data;
+  try { ({ data } = await api('GET', `/api/admin/news/${id}`)); }
+  catch (err) { toast(err.message, 'error'); return; }
   if (!data) return;
   openModal('Edit News', newsFormHTML(data), async () => {
     const d = getFormData($modalForm);
     d.sort_order = parseInt(d.sort_order) || 0;
-    d.updated_at = new Date().toISOString();
-    const { error } = await sb.from('news').update(d).eq('id', id);
-    if (error) toast(error.message, 'error');
-    else { toast('News updated'); loadNews(); }
+    try { await api('PUT', `/api/admin/news/${id}`, d); toast('News updated'); loadNews(); }
+    catch (err) { toast(err.message, 'error'); }
   });
 };
 
 window.toggleNewsPublish = async (id, publish) => {
-  const { error } = await sb.from('news').update({ is_published: publish, updated_at: new Date().toISOString() }).eq('id', id);
-  if (error) toast(error.message, 'error');
-  else { toast(publish ? 'Published' : 'Unpublished'); loadNews(); }
+  try {
+    await api('PATCH', `/api/admin/news/${id}/publish`, { is_published: publish });
+    toast(publish ? 'Published' : 'Unpublished');
+    loadNews();
+  } catch (err) { toast(err.message, 'error'); }
 };
 
 window.deleteNews = async (id) => {
   if (!confirm('Delete this news?')) return;
-  const { error } = await sb.from('news').delete().eq('id', id);
-  if (error) toast(error.message, 'error');
-  else { toast('Deleted'); loadNews(); }
+  try { await api('DELETE', `/api/admin/news/${id}`); toast('Deleted'); loadNews(); }
+  catch (err) { toast(err.message, 'error'); }
 };
 
 /* ═══════════════════════════════════════════════════════
    POPUPS CRUD
    ═══════════════════════════════════════════════════════ */
 async function loadPopups() {
-  const { data, error } = await sb.from('popups').select('*').order('created_at', { ascending: false });
-  if (error) { toast(error.message, 'error'); return; }
+  let data;
+  try { ({ data } = await api('GET', '/api/admin/popups')); }
+  catch (err) { toast(err.message, 'error'); return; }
 
   document.getElementById('popups-list').innerHTML = data.length === 0
     ? '<p class="text-steel-400 text-sm">No popups yet.</p>'
@@ -507,37 +529,37 @@ document.getElementById('add-popup-btn').addEventListener('click', () => {
     const d = getFormData($modalForm);
     if (!d.start_date) d.start_date = null;
     if (!d.end_date) d.end_date = null;
-    const { error } = await sb.from('popups').insert(d);
-    if (error) toast(error.message, 'error');
-    else { toast('Popup added'); loadPopups(); }
+    try { await api('POST', '/api/admin/popups', d); toast('Popup added'); loadPopups(); }
+    catch (err) { toast(err.message, 'error'); }
   });
 });
 
 window.editPopup = async (id) => {
-  const { data } = await sb.from('popups').select('*').eq('id', id).single();
+  let data;
+  try { ({ data } = await api('GET', `/api/admin/popups/${id}`)); }
+  catch (err) { toast(err.message, 'error'); return; }
   if (!data) return;
   openModal('Edit Popup', popupFormHTML(data), async () => {
     const d = getFormData($modalForm);
     if (!d.start_date) d.start_date = null;
     if (!d.end_date) d.end_date = null;
-    d.updated_at = new Date().toISOString();
-    const { error } = await sb.from('popups').update(d).eq('id', id);
-    if (error) toast(error.message, 'error');
-    else { toast('Popup updated'); loadPopups(); }
+    try { await api('PUT', `/api/admin/popups/${id}`, d); toast('Popup updated'); loadPopups(); }
+    catch (err) { toast(err.message, 'error'); }
   });
 };
 
 window.togglePopupActive = async (id, active) => {
-  const { error } = await sb.from('popups').update({ is_active: active, updated_at: new Date().toISOString() }).eq('id', id);
-  if (error) toast(error.message, 'error');
-  else { toast(active ? 'Activated' : 'Deactivated'); loadPopups(); }
+  try {
+    await api('PATCH', `/api/admin/popups/${id}/active`, { is_active: active });
+    toast(active ? 'Activated' : 'Deactivated');
+    loadPopups();
+  } catch (err) { toast(err.message, 'error'); }
 };
 
 window.deletePopup = async (id) => {
   if (!confirm('Delete this popup?')) return;
-  const { error } = await sb.from('popups').delete().eq('id', id);
-  if (error) toast(error.message, 'error');
-  else { toast('Deleted'); loadPopups(); }
+  try { await api('DELETE', `/api/admin/popups/${id}`); toast('Deleted'); loadPopups(); }
+  catch (err) { toast(err.message, 'error'); }
 };
 
 /* ── Init ──────────────────────────────────────────── */

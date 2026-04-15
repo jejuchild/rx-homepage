@@ -1,23 +1,17 @@
 /* ═══════════════════════════════════════════════════════
    RX Inc. — Dynamic News Loading
-   Fetches published news from Supabase and renders
+   Fetches published news from the local API and renders
    them into the #news-track carousel on the index page.
-   Requires: supabase-config.js loaded before this file.
    ═══════════════════════════════════════════════════════ */
 
 (async function () {
   const track = document.getElementById('news-track');
   if (!track) return; // Not on index page
-  if (typeof _supabase === 'undefined') return;
 
   try {
-    const { data: newsItems } = await _supabase
-      .from('news')
-      .select('*')
-      .eq('is_published', true)
-      .order('date', { ascending: false })
-      .order('sort_order', { ascending: true })
-      .limit(12);
+    const resp = await fetch('/api/news?limit=12');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const { data: newsItems } = await resp.json();
 
     if (!newsItems || newsItems.length === 0) return; // Keep static fallback
 
