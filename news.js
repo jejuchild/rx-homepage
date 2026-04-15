@@ -21,15 +21,13 @@
 
     if (!newsItems || newsItems.length === 0) return; // Keep static fallback
 
-    const lang = localStorage.getItem('rx-lang') || 'en';
-
     // Build news cards
     const cards = newsItems.map(n => {
-      const title = (lang === 'en' && n.title_en) ? n.title_en : n.title_ko;
+      const title = n.title_en || n.title_ko || '';
       const linkHref = n.link_url || '#';
       const dateStr = n.date || '';
       const category = n.category || 'News';
-      const linkLabel = lang === 'en' ? 'Read →' : '기사 보기 →';
+      const linkLabel = 'Read →';
 
       let imageHTML;
       if (n.image_url) {

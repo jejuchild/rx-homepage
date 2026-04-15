@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -492,7 +492,7 @@ function popupFormHTML(p = {}) {
     </div>
     ${inputField('Link URL', 'link_url', p.link_url || '', 'url')}
     <div class="grid grid-cols-2 gap-4">
-      ${inputField('Link Text (KO)', 'link_text_ko', p.link_text_ko || '자세히 보기')}
+      ${inputField('Link Text (KO)', 'link_text_ko', p.link_text_ko || 'Learn more')}
       ${inputField('Link Text (EN)', 'link_text_en', p.link_text_en || 'Learn More')}
     </div>
     <div class="grid grid-cols-2 gap-4">

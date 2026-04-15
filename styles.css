@@ -5,10 +5,6 @@
 /* ── Base ─────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
-/* ── Language Toggle ─────────────────────────────────── */
-body.lang-ko .en { display: none !important; }
-body.lang-en .ko { display: none !important; }
-
 /* ── Scroll Animation ────────────────────────────────── */
 .fade-in {
   opacity: 0;

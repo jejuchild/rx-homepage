@@ -32,11 +32,9 @@
     const sessionKey = `rx-popup-closed-${popup.id}`;
     if (sessionStorage.getItem(sessionKey)) return;
 
-    // Determine language
-    const lang = localStorage.getItem('rx-lang') || 'en';
-    const title = (lang === 'en' && popup.title_en) ? popup.title_en : popup.title_ko;
-    const content = (lang === 'en' && popup.content_en) ? popup.content_en : popup.content_ko;
-    const linkText = (lang === 'en' && popup.link_text_en) ? popup.link_text_en : (popup.link_text_ko || '자세히 보기');
+    const title = popup.title_en || popup.title_ko || '';
+    const content = popup.content_en || popup.content_ko || '';
+    const linkText = popup.link_text_en || popup.link_text_ko || 'Learn more';
 
     // Build popup HTML
     const overlay = document.createElement('div');
@@ -72,10 +70,10 @@
     // Bottom actions
     html += `<div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
       <button id="rx-popup-dismiss-today" style="background:none;border:none;color:#71717a;font-size:12px;cursor:pointer;padding:4px 0;">
-        ${lang === 'en' ? "Don't show today" : '오늘 하루 보지 않기'}
+        Don't show today
       </button>
       <button id="rx-popup-close" style="background:none;border:none;color:#a1a1aa;font-size:12px;cursor:pointer;padding:4px 8px;">
-        ${lang === 'en' ? 'Close' : '닫기'}
+        Close
       </button>
     </div>`;
     html += `</div>`;

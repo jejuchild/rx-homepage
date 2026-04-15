@@ -4,32 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Language Toggle ───────────────────────────────── */
-  const savedLang = localStorage.getItem('rx-lang') || 'en';  // default: English
-  document.body.classList.add(`lang-${savedLang}`);
-
-  // Update active states on load
-  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-    const lang = btn.dataset.langToggle;
-    btn.classList.toggle('text-white', lang === savedLang);
-    btn.classList.toggle('text-steel-400', lang !== savedLang);
-  });
-
-  // Toggle handler
-  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.langToggle;
-      document.body.classList.remove('lang-ko', 'lang-en');
-      document.body.classList.add(`lang-${lang}`);
-      localStorage.setItem('rx-lang', lang);
-
-      document.querySelectorAll('[data-lang-toggle]').forEach(b => {
-        b.classList.toggle('text-white', b.dataset.langToggle === lang);
-        b.classList.toggle('text-steel-400', b.dataset.langToggle !== lang);
-      });
-    });
-  });
-
   /* ── Scroll-triggered fade-in animation ─────────────── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
